@@ -1,8 +1,7 @@
 # cfb-predictor
 
 Weekly college football win-probability predictions, produced by a LightGBM
-model with isotonic calibration and served as static JSON to a Next.js
-frontend.
+model served as static JSON to a Next.js frontend.
 
 - **Backend**: Python package `cfb` (`src/cfb/`) with two CLI entry points.
 - **Frontend**: Next.js 16 App Router (`frontend/`), fully static export.
