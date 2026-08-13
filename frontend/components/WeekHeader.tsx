@@ -28,13 +28,17 @@ export function WeekHeader({
   gameCount,
 }: Props) {
   const accuracy =
-    model.holdout_accuracy_calibrated !== null
-      ? `${(model.holdout_accuracy_calibrated * 100).toFixed(1)}%`
+    model.holdout_accuracy !== null
+      ? `${(model.holdout_accuracy * 100).toFixed(1)}%`
       : "—";
   const brier =
-    model.holdout_brier_calibrated !== null
-      ? model.holdout_brier_calibrated.toFixed(3)
+    model.holdout_brier !== null
+      ? model.holdout_brier.toFixed(3)
       : "—";
+  const accuracyLabel =
+    model.holdout_variant === "calibrated"
+      ? "Calibrated holdout accuracy"
+      : "Holdout accuracy";
 
   return (
     <header className="border-b border-neutral-200 dark:border-neutral-800 pb-6 mb-8">
@@ -53,7 +57,7 @@ export function WeekHeader({
         </div>
       </div>
       <div className="mt-6 flex gap-6 flex-wrap text-sm font-mono">
-        <MetricPill label="Holdout accuracy" value={accuracy} />
+        <MetricPill label={accuracyLabel} value={accuracy} />
         <MetricPill label="Brier score" value={brier} />
         {model.market_independent ? (
           <span className="inline-flex items-center gap-1.5 text-neutral-500 dark:text-neutral-400">

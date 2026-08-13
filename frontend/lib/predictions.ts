@@ -28,9 +28,11 @@ export type Game = {
 export type ModelMeta = {
   trained_at: string | null;
   market_independent: boolean;
-  holdout_accuracy_calibrated: number | null;
-  holdout_auc_calibrated: number | null;
-  holdout_brier_calibrated: number | null;
+  calibration_method: string;
+  holdout_variant: "calibrated" | "uncalibrated";
+  holdout_accuracy: number | null;
+  holdout_auc: number | null;
+  holdout_brier: number | null;
 };
 
 export type WeekPrediction = {

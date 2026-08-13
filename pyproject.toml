@@ -24,10 +24,14 @@ dependencies = [
 dev = [
     "pytest>=8.0",
 ]
+tune = [
+    "optuna>=4.0",
+]
 
 [project.scripts]
 cfb-train = "scripts.train:main"
 cfb-pipeline = "scripts.pipeline:main"
+cfb-tune = "scripts.tune:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

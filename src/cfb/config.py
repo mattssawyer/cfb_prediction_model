@@ -25,25 +25,39 @@ SCHEMA_PATH = MODELS_DIR / "winner_model_schema.json"
 TRAINING_MATRIX_PATH = DATA_DIR / "training_matrix.parquet"
 
 HISTORICAL_START_YEAR = 2015
-HISTORICAL_END_YEAR = 2024
+HISTORICAL_END_YEAR = 2025
 
-TRAIN_MAX_SEASON = 2022
-CALIB_SEASON = 2023
-HOLDOUT_SEASON = 2024
-PROD_MAX_SEASON = 2024
+# Time-based split. Train on seasons <= TRAIN_MAX_SEASON, early-stop on
+# CALIB_SEASON, fit isotonic calibration on that same fold, then score honest
+# out-of-sample metrics on HOLDOUT_SEASON. The production booster is finally
+# retrained on seasons <= PROD_MAX_SEASON with the frozen best_iteration.
+TRAIN_MAX_SEASON = 2023
+CALIB_SEASON = 2024
+HOLDOUT_SEASON = 2025
+PROD_MAX_SEASON = 2025
 
+# Booster hyperparameters. Anything the sweep can tune goes here so that
+# ``scripts/tune.py`` and ``scripts/train.py`` share a single source of truth.
+# Best values found via 200-trial Optuna TPE sweep on 2015-2023 train,
+# 2024 early-stop -> 2025 honest holdout: acc=71.6%, AUC=0.759, Brier=0.194.
 LGBM_PARAMS = dict(
     objective="binary",
+    metric="binary_logloss",
     random_state=42,
-    max_bin=255,
     n_jobs=-1,
-    max_depth=10,
-    num_leaves=90,
-    reg_alpha=0.3848493186606046,
-    reg_lambda=0.2829952798614409,
-    subsample=0.9820795722130331,
-    learning_rate=0.05,
     verbose=-1,
+    max_bin=255,
+    force_row_wise=True,
+    learning_rate=0.056072749794376806,
+    num_leaves=21,
+    max_depth=9,
+    min_child_samples=98,
+    reg_alpha=0.0028731908510668063,
+    reg_lambda=0.0005432473018269719,
+    colsample_bytree=0.7396501743797512,
+    subsample=0.791398526387835,
+    subsample_freq=4,
+    min_split_gain=0.14182019178660907,
 )
 
 # Pregame market / probability features. Available for ~95% of completed games but only
@@ -61,11 +75,12 @@ DROP_MARKET_FEATURES = [
 
 DROP_COLUMNS = ["home_win", "point_differential", "season", "week"]
 
+# Numeric features we refuse to zero-fill silently at inference. Elo is the
+# only truly essential input for FBS teams; the in-season stat columns can
+# legitimately be zero for week-1 games (that's how they're seen in training).
 ESSENTIAL_NUMERIC_FEATURES = [
     "homePregameElo",
     "awayPregameElo",
-    "home_offensivePPA",
-    "away_offensivePPA",
 ]
 
 

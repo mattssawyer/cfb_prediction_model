@@ -1,0 +1,28 @@
+{
+  "best_params": {
+    "learning_rate": 0.056072749794376806,
+    "num_leaves": 21,
+    "max_depth": 9,
+    "min_child_samples": 98,
+    "reg_alpha": 0.0028731908510668063,
+    "reg_lambda": 0.0005432473018269719,
+    "colsample_bytree": 0.7396501743797512,
+    "subsample": 0.791398526387835,
+    "subsample_freq": 4,
+    "min_split_gain": 0.14182019178660907
+  },
+  "best_iteration": 109,
+  "calib_logloss": 0.5653183032595515,
+  "holdout_metrics": {
+    "accuracy": 0.7156398104265402,
+    "auc": 0.7588831449516633,
+    "brier": 0.1941896168109069,
+    "logloss": 0.5701255135535884,
+    "n_games": 844
+  },
+  "n_trials": 200,
+  "seed": 42,
+  "train_max_season": 2023,
+  "calib_season": 2024,
+  "holdout_season": 2025
+}

@@ -135,11 +135,18 @@ def train(training_matrix: pd.DataFrame | None = None) -> dict:
     _print_metrics(f"honest {HOLDOUT_SEASON} holdout (uncalibrated)", uncalibrated_metrics)
     _print_metrics(f"honest {HOLDOUT_SEASON} holdout (calibrated)", calibrated_metrics)
 
-    if calibrated_metrics["brier"] > uncalibrated_metrics["brier"]:
+    # Only ship calibration if it actually helps the honest holdout Brier.
+    # When it doesn't (e.g. the calibration fold is a poor representative of
+    # the holdout, as can happen across regime shifts in college football),
+    # we serialize the identity mapping so ``apply_calibration`` becomes a
+    # no-op, but keep the metrics for both variants in the schema.
+    ship_calibration = calibrated_metrics["brier"] <= uncalibrated_metrics["brier"]
+    if not ship_calibration:
         print(
-            "\nNote: calibrated Brier > uncalibrated on the honest holdout. "
-            "Can happen when the calibration fold is not representative; the "
-            "calibrated model is still saved. Inspect the isotonic map if concerned."
+            f"\nCalibration hurts holdout Brier "
+            f"({uncalibrated_metrics['brier']:.4f} raw -> "
+            f"{calibrated_metrics['brier']:.4f} calibrated). "
+            "Disabling calibration in the schema; using raw booster probs."
         )
 
     # ----- Stage 2: production retrain -----
@@ -181,13 +188,22 @@ def train(training_matrix: pd.DataFrame | None = None) -> dict:
             "uncalibrated": uncalibrated_metrics,
             "calibrated": calibrated_metrics,
         },
-        "calibration": {
-            "method": "isotonic",
-            "fitted_on_season": CALIB_SEASON,
-            "n_calibration_games": int(len(y_calib)),
-            "X_thresholds": x_thresholds,
-            "y_thresholds": y_thresholds,
-        },
+        "calibration": (
+            {
+                "method": "isotonic",
+                "fitted_on_season": CALIB_SEASON,
+                "n_calibration_games": int(len(y_calib)),
+                "X_thresholds": x_thresholds,
+                "y_thresholds": y_thresholds,
+            }
+            if ship_calibration
+            else {
+                "method": "none",
+                "fitted_on_season": CALIB_SEASON,
+                "n_calibration_games": int(len(y_calib)),
+                "reason": "calibrated_brier_exceeded_uncalibrated_on_holdout",
+            }
+        ),
         "production_model_metrics": {
             "n_training_games": int(len(X_prod)),
             "n_features": int(X_prod.shape[1]),
@@ -291,6 +307,8 @@ def apply_calibration(raw_probs: np.ndarray, schema: dict) -> np.ndarray:
     method = cal.get("method")
     xs = cal.get("X_thresholds")
     ys = cal.get("y_thresholds")
+    if method == "none":
+        return np.asarray(raw_probs, dtype=float)
     if method != "isotonic" or not xs or not ys or len(xs) != len(ys):
         print(
             f"WARNING: calibration block unusable "
@@ -368,25 +386,41 @@ def predict_week(
     return payload
 
 
+def _effective_holdout_metrics(schema: dict) -> tuple[dict | None, str]:
+    """Return (metrics_dict, variant_name) that reflect what the model ships.
+
+    When calibration is disabled in the schema (method != "isotonic"), the
+    raw-booster metrics are the honest read of holdout quality.
+    """
+    holdout = schema.get("honest_holdout_metrics", {}) or {}
+    calibration = schema.get("calibration", {}) or {}
+    if calibration.get("method") == "isotonic":
+        variant = "calibrated"
+    else:
+        variant = "uncalibrated"
+    metrics = holdout.get(variant) if isinstance(holdout.get(variant), dict) else holdout
+    return metrics, variant
+
+
 def _print_model_meta(schema: dict) -> None:
-    holdout = schema.get("honest_holdout_metrics", {})
-    cal = holdout.get("calibrated") if isinstance(holdout.get("calibrated"), dict) else holdout
-    if cal:
+    metrics, variant = _effective_holdout_metrics(schema)
+    if metrics:
         print(
-            f"Model calibrated holdout: acc={cal.get('accuracy', float('nan')):.4f} "
-            f"AUC={cal.get('auc', float('nan')):.4f} Brier={cal.get('brier', float('nan')):.4f}"
+            f"Model {variant} holdout: acc={metrics.get('accuracy', float('nan')):.4f} "
+            f"AUC={metrics.get('auc', float('nan')):.4f} Brier={metrics.get('brier', float('nan')):.4f}"
         )
 
 
 def _model_meta(schema: dict) -> dict:
-    holdout = schema.get("honest_holdout_metrics", {})
-    calibrated = holdout.get("calibrated") if isinstance(holdout.get("calibrated"), dict) else holdout
+    metrics, variant = _effective_holdout_metrics(schema)
     return {
         "trained_at": schema.get("trained_at"),
         "market_independent": bool(schema.get("market_independent", False)),
-        "holdout_accuracy_calibrated": _optional_float(calibrated.get("accuracy") if calibrated else None),
-        "holdout_auc_calibrated": _optional_float(calibrated.get("auc") if calibrated else None),
-        "holdout_brier_calibrated": _optional_float(calibrated.get("brier") if calibrated else None),
+        "calibration_method": (schema.get("calibration") or {}).get("method", "none"),
+        "holdout_variant": variant,
+        "holdout_accuracy": _optional_float(metrics.get("accuracy") if metrics else None),
+        "holdout_auc": _optional_float(metrics.get("auc") if metrics else None),
+        "holdout_brier": _optional_float(metrics.get("brier") if metrics else None),
     }
 
 

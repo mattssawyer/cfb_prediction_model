@@ -428,36 +428,40 @@ class CFBDataLoader:
             df = self.load_batch_weekly_stats(year, refresh=force_refresh_stats)
             if not df.empty:
                 weekly_frames.append(df)
-        if not weekly_frames:
-            raise RuntimeError("no weekly stats data available; cannot build features")
-        weekly_stats = pd.concat(weekly_frames, ignore_index=True)
 
-        print(f"Joining {len(games_df)} games with weekly team statistics...")
         ml_df = games_df.copy()
+        if weekly_frames:
+            weekly_stats = pd.concat(weekly_frames, ignore_index=True)
+            print(f"Joining {len(games_df)} games with weekly team statistics...")
 
-        # Stats "through week N-1" avoids leakage on games happening in week N.
-        ml_df["home_stats_week"] = ml_df["week"] - 1
-        ml_df["away_stats_week"] = ml_df["week"] - 1
+            # Stats "through week N-1" avoids leakage on games happening in week N.
+            ml_df["home_stats_week"] = ml_df["week"] - 1
+            ml_df["away_stats_week"] = ml_df["week"] - 1
 
-        home_stats = _prefix_team_stats(weekly_stats, "home")
-        away_stats = _prefix_team_stats(weekly_stats, "away")
+            home_stats = _prefix_team_stats(weekly_stats, "home")
+            away_stats = _prefix_team_stats(weekly_stats, "away")
 
-        ml_df = ml_df.merge(
-            home_stats,
-            left_on=["season", "homeTeam", "home_stats_week"],
-            right_on=["year", "homeTeam", "stats_through_week"],
-            how="left",
-            suffixes=("", "_home_dup"),
-        )
-        ml_df = ml_df.merge(
-            away_stats,
-            left_on=["season", "awayTeam", "away_stats_week"],
-            right_on=["year", "awayTeam", "stats_through_week"],
-            how="left",
-            suffixes=("", "_away_dup"),
-        )
-        dup_cols = [c for c in ml_df.columns if c.endswith("_dup")]
-        ml_df = ml_df.drop(columns=dup_cols + ["home_stats_week", "away_stats_week"], errors="ignore")
+            ml_df = ml_df.merge(
+                home_stats,
+                left_on=["season", "homeTeam", "home_stats_week"],
+                right_on=["year", "homeTeam", "stats_through_week"],
+                how="left",
+                suffixes=("", "_home_dup"),
+            )
+            ml_df = ml_df.merge(
+                away_stats,
+                left_on=["season", "awayTeam", "away_stats_week"],
+                right_on=["year", "awayTeam", "stats_through_week"],
+                how="left",
+                suffixes=("", "_away_dup"),
+            )
+            dup_cols = [c for c in ml_df.columns if c.endswith("_dup")]
+            ml_df = ml_df.drop(columns=dup_cols + ["home_stats_week", "away_stats_week"], errors="ignore")
+        else:
+            # No in-season stats yet (early-season prediction). The transform
+            # zero-fills the missing per-team stat columns downstream, matching
+            # how week-1 rows are handled during training.
+            print(f"  no weekly stats available for {start_year}-{end_year}; skipping join")
 
         ml_df = self._add_team_talent_features(ml_df, start_year, end_year)
         ml_df = self._add_betting_lines_features(ml_df)

@@ -26,7 +26,6 @@ from .config import (
     HISTORICAL_END_YEAR,
     HISTORICAL_START_YEAR,
     TRAINING_MATRIX_PATH,
-    DATA_DIR,
 )
 from .data import CFBDataLoader
 
@@ -329,23 +328,18 @@ def build_training_matrix(
 ) -> pd.DataFrame:
     """Build the transformed training-time matrix from cached parquets.
 
-    Reads games+rankings joined parquet if present, else concatenates
-    ``data/games/games_{year}.parquet`` files. Then runs the full ML feature
-    join and the LightGBM transform. Writes ``data/training_matrix.parquet``
+    Concatenates ``data/games/games_{year}.parquet`` for every season in the
+    range, joins on features via ``CFBDataLoader.create_ml_features_dataset``,
+    runs the LightGBM transform, and writes ``data/training_matrix.parquet``
     when ``write=True``.
     """
     loader = CFBDataLoader()
 
-    games_with_rankings = DATA_DIR / "cfb_games_with_rankings.parquet"
-    if games_with_rankings.exists():
-        games_df = pd.read_parquet(games_with_rankings)
-        print(f"Loaded games+rankings parquet: {len(games_df)} rows")
-    else:
-        frames = []
-        for year in range(start_year, end_year + 1):
-            frames.append(loader.load_games(year))
-        games_df = pd.concat(frames, ignore_index=True)
-        print(f"Concatenated per-season games parquets: {len(games_df)} rows")
+    frames = []
+    for year in range(start_year, end_year + 1):
+        frames.append(loader.load_games(year))
+    games_df = pd.concat(frames, ignore_index=True)
+    print(f"Concatenated per-season games parquets: {len(games_df)} rows")
 
     filtered = games_df[
         games_df["homeConference"].notna()
@@ -466,16 +460,20 @@ def _align_to_schema(transformed: pd.DataFrame, schema: dict) -> pd.DataFrame:
     if missing:
         missing_categorical = [c for c in missing if c in categorical_features]
         missing_essential = [c for c in missing if c in ESSENTIAL_NUMERIC_FEATURES]
-        if missing_categorical or missing_essential:
+        if missing_essential:
             raise RuntimeError(
                 "Refusing to predict: essential training features are missing.\n"
-                f"  Missing categorical: {missing_categorical}\n"
                 f"  Missing essential numeric: {missing_essential}\n"
                 f"  Total missing: {len(missing)}"
             )
-        print(f"  filling {len(missing)} non-essential missing features with 0.0")
-        for feature in missing:
-            transformed[feature] = 0.0
+        print(f"  filling {len(missing)} missing features (0.0 numeric, NaN categorical)")
+        fill_df = pd.DataFrame(
+            {c: 0.0 for c in missing if c not in missing_categorical},
+            index=transformed.index,
+        )
+        for c in missing_categorical:
+            fill_df[c] = pd.Series([pd.NA] * len(transformed), index=transformed.index)
+        transformed = pd.concat([transformed, fill_df], axis=1)
 
     if extras:
         transformed = transformed.drop(columns=extras)
