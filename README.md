@@ -3,7 +3,8 @@
 Weekly college football win-probability predictions, produced by a LightGBM
 model served as static JSON to a Next.js frontend.
 
-- **Backend**: Python package `cfb` (`src/cfb/`) with two CLI entry points.
+- **Backend**: Python package `cfb` (`src/cfb/`) with three CLI entry points
+  (`cfb-train`, `cfb-pipeline`, `cfb-tune`).
 - **Frontend**: Next.js 16 App Router (`frontend/`), fully static export.
 - **Weekly refresh**: GitHub Actions cron (`.github/workflows/weekly.yml`).
 
@@ -18,7 +19,8 @@ model served as static JSON to a Next.js frontend.
 │   └── model.py                 # train + load + predict_week
 ├── scripts/
 │   ├── train.py                 # cfb-train: rebuild dataset + retrain
-│   └── pipeline.py              # cfb-pipeline: refresh + predict + write JSON
+│   ├── pipeline.py              # cfb-pipeline: refresh + predict + write JSON
+│   └── tune.py                  # cfb-tune: Optuna hyperparameter sweep
 ├── models/
 │   ├── winner_model.txt         # LightGBM booster (portable text)
 │   └── winner_model_schema.json # feature schema + calibration + metrics
@@ -38,34 +40,42 @@ plus a copy at `predictions/latest.json`:
 
 ```json
 {
-  "season": 2025,
-  "week": 4,
-  "generated_at": "2025-09-14T08:00:00Z",
+  "season": 2026,
+  "week": 1,
+  "generated_at": "2026-08-13T03:47:00Z",
   "model": {
-    "trained_at": "2026-08-13T02:52:02Z",
+    "trained_at": "2026-08-13T03:47:00Z",
     "market_independent": true,
-    "holdout_accuracy_calibrated": 0.6949,
-    "holdout_auc_calibrated": 0.7650,
-    "holdout_brier_calibrated": 0.1939
+    "calibration_method": "none",
+    "holdout_variant": "uncalibrated",
+    "holdout_accuracy": 0.7156,
+    "holdout_auc": 0.7589,
+    "holdout_brier": 0.1942
   },
   "games": [
     {
-      "id": 401628495,
-      "kickoff": "2025-09-20T19:00:00Z",
-      "home_team": "Oregon",
-      "away_team": "Oregon State",
+      "id": 401752722,
+      "kickoff": "2026-08-29T23:00:00Z",
+      "home_team": "USC",
+      "away_team": "San José State",
       "home_conference": "Big Ten",
-      "away_conference": "Pac-12",
-      "venue": "Autzen Stadium",
+      "away_conference": "Mountain West",
+      "venue": "United Airlines Field at the Los Angeles Memorial Coliseum",
       "neutral_site": false,
       "conference_game": false,
-      "home_win_probability": 0.85,
-      "predicted_winner": "Oregon",
-      "confidence": 0.85
+      "home_win_probability": 0.867,
+      "predicted_winner": "USC",
+      "confidence": 0.867
     }
   ]
 }
 ```
+
+`calibration_method` is `"isotonic"` when the isotonic calibrator was shipped
+and `"none"` when training auto-disabled it (see the Model section).
+`holdout_variant` tells the frontend which metrics were actually reported —
+`calibrated` or `uncalibrated` — so the numbers always describe the booster
+the app is running.
 
 The frontend reads these files at build time and pre-renders every route as
 static HTML. There is no backend server.
@@ -82,10 +92,14 @@ pip install -e .
 
 # Predict the next unplayed week
 python scripts/pipeline.py               # auto-detects season and week
-python scripts/pipeline.py --season 2025 --week 4 --force
+python scripts/pipeline.py --season 2026 --week 1 --force
 
 # Retrain (only needed after an offseason with new historical data)
 python scripts/train.py
+
+# Re-tune hyperparameters (optional; sweep takes ~6 min)
+pip install -e ".[tune]"
+python scripts/tune.py --n-trials 200 --write models/tuned_params.json
 ```
 
 Get a CFBD API key at <https://collegefootballdata.com/key>.
@@ -104,17 +118,38 @@ first if you want real data.
 
 ## Model
 
-- Binary classifier: LightGBM (`objective="binary"`).
-- Three-stage time-based split:
-  1. Train on `season <= 2022`, early-stop on `season == 2023`.
-  2. Fit isotonic calibration on 2023 raw probabilities.
-  3. Score honest holdout on `season == 2024` (uncalibrated + calibrated).
-  4. Retrain production on `season <= 2024` with the frozen `best_iteration`.
+- Binary classifier: LightGBM (`objective="binary"`), currently 109 trees.
+- Time-based split (configured for the 2026 season):
+  1. Train on `season <= 2023`, early-stop on `season == 2024`.
+  2. Fit isotonic calibration on the 2024 fold. If calibrated Brier is worse
+     than uncalibrated on the honest holdout, calibration is auto-disabled
+     and the schema records `method = "none"`.
+  3. Score honest holdout on `season == 2025` (both variants).
+  4. Retrain production on `season <= 2025` with the frozen `best_iteration`.
 - Pregame market features (`spread`, `homeWinProbability`, …) are dropped from
   training by default. They're only available for ~12% of upcoming games, and
   including them makes the model collapse to near-50/50 for the rest.
-- ~334 features per game after all joins.
-- Honest 2024 calibrated holdout: 69.5% accuracy, 0.194 Brier score.
+- 325 features per game after all joins.
+- Hyperparameters found via a 200-trial Optuna TPE sweep on the same
+  train → early-stop split; rerun with `python scripts/tune.py --n-trials 200`.
+
+### Honest holdout metrics
+
+The honest holdout is the 2025 season — the model never sees it during
+training or hyperparameter search, so these numbers are an unbiased estimate
+of what the shipped booster will do on future games.
+
+| Metric | Value |
+|---|---|
+| Accuracy | **71.6%** |
+| AUC | 0.759 |
+| Brier score | 0.194 |
+| Log-loss | 0.570 |
+| Games | 844 |
+
+Calibration hurt Brier on 2025 (raw 0.194 → calibrated 0.199), so it is
+currently disabled and the app reports uncalibrated probabilities.
+
 
 ## Automating weekly runs (GitHub Actions)
 
@@ -132,28 +167,21 @@ Every run:
 - Commits `predictions/{season}/week{N}.json` back to `main`.
 - Vercel (or whatever the frontend host is) auto-redeploys on the commit.
 
-## Deploying the frontend to Vercel
-
-1. Push the repo to GitHub.
-2. On Vercel: New Project → import the repo.
-3. Root directory: `frontend`.
-4. Framework preset: Next.js (auto-detected).
-5. Deploy.
-
 Every push to `main` — including the weekly bot commit — triggers a redeploy.
 
 ## Anatomy of a weekly run
 
 ```
 python scripts/pipeline.py
-  ├─ CFBDataLoader.load_games(2025, refresh=True)
+  ├─ CFBDataLoader.load_games(season, refresh=True)
   ├─ CFBDataLoader.load_batch_weekly_stats / advanced / talent / lines / winprob
-  ├─ CFBDataLoader.create_ml_features_dataset(week_games)  # 50 games x 336 features
-  ├─ features.transform_for_lightgbm(...)                  # → 328 cols, categoricals aligned
-  ├─ features._align_to_schema(...)                        # → 334 cols exactly matching schema
+  ├─ CFBDataLoader.create_ml_features_dataset(week_games)  # N games × ~336 raw cols
+  ├─ features.transform_for_lightgbm(...)                  # → ~59-334 cols, categoricals aligned
+  ├─ features._align_to_schema(...)                        # → 325 cols exactly matching schema
   ├─ booster.predict(X)                                    # raw probabilities
-  ├─ model.apply_calibration(raw)                          # isotonic lookup
-  └─ write predictions/2025/week{N}.json + predictions/latest.json
+  ├─ model.apply_calibration(raw)                          # no-op when method="none"
+  └─ write predictions/{season}/week{N}.json + predictions/latest.json
 ```
 
-End-to-end takes ~5s cold (with CFBD refresh) and <1s warm.
+End-to-end takes ~2 minutes cold (first CFBD refresh of the season) and
+<2 seconds warm.
