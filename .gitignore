@@ -1,0 +1,40 @@
+# Secrets
+.env
+
+# Virtual environments
+honors_env/
+honors_env_py311/
+venv/
+env/
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+build/
+dist/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+
+# Parquet caches (regenerable from CFBD API)
+data/
+cfb_data/
+
+# Overview / archival
+Overview/
+
+# Node / frontend build artifacts
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+
+# Project Submission
+submission/
+images/

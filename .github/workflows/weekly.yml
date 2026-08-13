@@ -1,0 +1,79 @@
+name: Weekly Predictions
+
+on:
+  schedule:
+    # Sundays at 08:00 UTC (~03:00 US Central during CDT).
+    - cron: "0 8 * * 0"
+  workflow_dispatch:
+    inputs:
+      season:
+        description: "Override season (e.g. 2025). Blank = auto-detect."
+        required: false
+      week:
+        description: "Override week (e.g. 5). Blank = next unplayed."
+        required: false
+      force:
+        description: "Overwrite an existing predictions JSON."
+        required: false
+        default: "false"
+        type: boolean
+
+concurrency:
+  group: weekly-predictions
+  cancel-in-progress: false
+
+jobs:
+  predict:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Cache pip
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: pip-${{ runner.os }}-${{ hashFiles('pyproject.toml') }}
+
+      - name: Install package
+        run: pip install -e .
+
+      - name: Restore parquet cache
+        uses: actions/cache@v4
+        with:
+          path: data/
+          key: cfbd-data-${{ github.run_id }}
+          restore-keys: |
+            cfbd-data-
+
+      - name: Run weekly pipeline
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+          SEASON_ARG: ${{ inputs.season }}
+          WEEK_ARG: ${{ inputs.week }}
+          FORCE_ARG: ${{ inputs.force }}
+        run: |
+          ARGS=()
+          [[ -n "${SEASON_ARG}" ]] && ARGS+=(--season "${SEASON_ARG}")
+          [[ -n "${WEEK_ARG}" ]] && ARGS+=(--week "${WEEK_ARG}")
+          [[ "${FORCE_ARG}" == "true" ]] && ARGS+=(--force)
+          python scripts/pipeline.py "${ARGS[@]}"
+
+      - name: Commit predictions
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add predictions/
+          if git diff --staged --quiet; then
+            echo "No prediction changes to commit."
+          else
+            git commit -m "predictions: auto-update $(date -u +%Y-%m-%d)"
+            git push
+          fi
