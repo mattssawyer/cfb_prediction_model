@@ -150,25 +150,6 @@ of what the shipped booster will do on future games.
 Calibration hurt Brier on 2025 (raw 0.194 → calibrated 0.199), so it is
 currently disabled and the app reports uncalibrated probabilities.
 
-
-## Automating weekly runs (GitHub Actions)
-
-1. Push this repo to GitHub.
-2. Settings → Secrets and variables → Actions → New repository secret:
-   - Name: `CFBD_API_KEY`
-   - Value: your CFBD API key.
-3. The workflow runs every Sunday 08:00 UTC. To trigger it manually, go to
-   Actions → Weekly Predictions → Run workflow (with optional season/week
-   overrides).
-
-Every run:
-- Refreshes CFBD data for the current season.
-- Builds features and runs the model.
-- Commits `predictions/{season}/week{N}.json` back to `main`.
-- Vercel (or whatever the frontend host is) auto-redeploys on the commit.
-
-Every push to `main` — including the weekly bot commit — triggers a redeploy.
-
 ## Anatomy of a weekly run
 
 ```
