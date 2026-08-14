@@ -1,10 +1,3 @@
-/**
- * Load prediction JSON files at build time.
- *
- * Predictions live under ../predictions/ in the parent repo. Everything
- * is read synchronously from disk — no runtime fetching, no API server.
- */
-
 import fs from "node:fs";
 import path from "node:path";
 
@@ -48,39 +41,25 @@ export type WeekIndex = {
   week: number;
 };
 
-/**
- * Load the newest prediction file (predictions/latest.json). Returns null if
- * no predictions have been produced yet.
- */
 export function loadLatest(): WeekPrediction | null {
   const filePath = path.join(PREDICTIONS_DIR, "latest.json");
   if (!fs.existsSync(filePath)) return null;
-  const raw = fs.readFileSync(filePath, "utf8");
-  return JSON.parse(raw) as WeekPrediction;
+  return JSON.parse(fs.readFileSync(filePath, "utf8")) as WeekPrediction;
 }
 
-/**
- * Load predictions for a specific season and week. Returns null if the file
- * doesn't exist.
- */
 export function loadWeek(season: number, week: number): WeekPrediction | null {
   const filePath = path.join(PREDICTIONS_DIR, String(season), `week${week}.json`);
   if (!fs.existsSync(filePath)) return null;
-  const raw = fs.readFileSync(filePath, "utf8");
-  return JSON.parse(raw) as WeekPrediction;
+  return JSON.parse(fs.readFileSync(filePath, "utf8")) as WeekPrediction;
 }
 
-/**
- * Walk the predictions directory and return every {season, week} pair that
- * has a JSON file on disk. Used to pre-generate static routes.
- */
-export function listAllWeeks(): WeekIndex[] {
+export function listWeeks(): WeekIndex[] {
   if (!fs.existsSync(PREDICTIONS_DIR)) return [];
   const entries: WeekIndex[] = [];
-  for (const seasonName of fs.readdirSync(PREDICTIONS_DIR)) {
-    const seasonPath = path.join(PREDICTIONS_DIR, seasonName);
+  for (const name of fs.readdirSync(PREDICTIONS_DIR)) {
+    const seasonPath = path.join(PREDICTIONS_DIR, name);
     if (!fs.statSync(seasonPath).isDirectory()) continue;
-    const season = Number(seasonName);
+    const season = Number(name);
     if (!Number.isFinite(season)) continue;
     for (const file of fs.readdirSync(seasonPath)) {
       const match = file.match(/^week(\d+)\.json$/);

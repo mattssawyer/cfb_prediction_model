@@ -1,16 +1,19 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import Link from "next/link";
+import NavLinks from "@/components/nav-links";
 import "./globals.css";
 
-const sans = Inter({
-  variable: "--font-sans",
+const sans = IBM_Plex_Sans({
+  variable: "--font-plex-sans",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
-const mono = JetBrains_Mono({
-  variable: "--font-mono",
+const mono = IBM_Plex_Mono({
+  variable: "--font-plex-mono",
   subsets: ["latin"],
+  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
@@ -18,41 +21,31 @@ export const metadata: Metadata = {
   description: "Weekly college football win-probability predictions.",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html
-      lang="en"
-      className={`${sans.variable} ${mono.variable} antialiased`}
-    >
-      <body className="min-h-screen bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 font-sans">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-          <nav className="mb-10 flex items-baseline justify-between">
+    <html lang="en" className={`${sans.variable} ${mono.variable}`}>
+      <body className="flex min-h-screen flex-col antialiased">
+        <header className="bg-canvas">
+          <div className="mx-auto flex max-w-5xl items-center justify-between gap-6 px-4 py-4 sm:px-6">
             <Link
               href="/"
-              className="font-mono text-sm tracking-wider text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
+              className="text-xl font-bold uppercase tracking-tight text-ink"
             >
-              cfb-predictor
+              CFB Predictor
             </Link>
-            <Link
-              href="/archive"
-              className="font-mono text-sm text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
-            >
-              archive
-            </Link>
-          </nav>
+            <NavLinks />
+          </div>
+        </header>
+        <div className="mx-auto w-full max-w-5xl flex-1 px-4 py-10 sm:px-6 sm:py-14">
           {children}
-          <footer className="mt-16 pt-6 border-t border-neutral-100 dark:border-neutral-900 text-xs font-mono text-neutral-400 dark:text-neutral-600">
-            data:{" "}
-            <a
-              href="https://collegefootballdata.com"
-              className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
-            >
-              collegefootballdata.com
-            </a>
-            {" · "}
-            model: LightGBM + isotonic calibration
-          </footer>
         </div>
+        <footer className="mx-auto w-full max-w-5xl px-4 pb-10 font-mono text-[11px] uppercase tracking-wide text-ink-muted sm:px-6">
+          Data via <Link href="https://collegefootballdata.com" className="text-accent hover:text-accent-dark">collegefootballdata.com</Link>
+        </footer>
       </body>
     </html>
   );
