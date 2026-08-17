@@ -16,6 +16,7 @@ export type Game = {
   home_win_probability: number;
   predicted_winner: string;
   confidence: number;
+  predicted_margin: number | null;
 };
 
 export type ModelMeta = {
@@ -26,6 +27,12 @@ export type ModelMeta = {
   holdout_accuracy: number | null;
   holdout_auc: number | null;
   holdout_brier: number | null;
+  spread?: {
+    trained_at: string | null;
+    holdout_mae: number | null;
+    holdout_rmse: number | null;
+    holdout_sign_accuracy: number | null;
+  } | null;
 };
 
 export type WeekPrediction = {

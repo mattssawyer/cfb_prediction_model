@@ -22,6 +22,8 @@ PREDICTIONS_DIR = PROJECT_ROOT / "predictions"
 
 MODEL_PATH = MODELS_DIR / "winner_model.txt"
 SCHEMA_PATH = MODELS_DIR / "winner_model_schema.json"
+SPREAD_MODEL_PATH = MODELS_DIR / "spread_model.txt"
+SPREAD_MODEL_SCHEMA_PATH = MODELS_DIR / "spread_model_schema.json"
 TRAINING_MATRIX_PATH = DATA_DIR / "training_matrix.parquet"
 
 HISTORICAL_START_YEAR = 2015
@@ -58,6 +60,26 @@ LGBM_PARAMS = dict(
     subsample=0.791398526387835,
     subsample_freq=4,
     min_split_gain=0.14182019178660907,
+)
+
+LGBM_SPREAD_PARAMS = dict(
+    objective="mae",          # L1; blowouts hurt less than L2
+    metric="l1",
+    random_state=42,
+    n_jobs=-1,
+    verbose=-1,
+    max_bin=255,
+    force_row_wise=True,
+    learning_rate=0.056,      # start from the winner sweep; retune later
+    num_leaves=21,
+    max_depth=9,
+    min_child_samples=98,
+    reg_alpha=0.00287,
+    reg_lambda=0.00054,
+    colsample_bytree=0.74,
+    subsample=0.791,
+    subsample_freq=4,
+    min_split_gain=0.142,
 )
 
 # Pregame market / probability features. Available for ~95% of completed games but only

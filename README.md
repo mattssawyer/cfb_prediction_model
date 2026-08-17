@@ -104,18 +104,6 @@ python scripts/tune.py --n-trials 200 --write models/tuned_params.json
 
 Get a CFBD API key at <https://collegefootballdata.com/key>.
 
-### Frontend dev
-
-```bash
-cd frontend
-npm install
-npm run dev       # http://localhost:3000
-npm run build     # produces frontend/out/ (static export)
-```
-
-The frontend reads `../predictions/*.json` at build time, so run the pipeline
-first if you want real data.
-
 ## Model
 
 - Binary classifier: LightGBM (`objective="binary"`), currently 109 trees.

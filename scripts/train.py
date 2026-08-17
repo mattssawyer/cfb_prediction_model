@@ -20,11 +20,12 @@ sys.path.insert(0, str(_ROOT / "src"))
 
 from cfb.features import build_training_matrix
 from cfb.model import train
-
+from cfb.model import train_spread
 
 def main() -> None:
     build_training_matrix()
     train()
+    train_spread()
 
 
 if __name__ == "__main__":

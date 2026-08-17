@@ -35,6 +35,8 @@ from sklearn.metrics import (
     brier_score_loss,
     log_loss,
     roc_auc_score,
+    mean_absolute_error,
+    mean_squared_error,
 )
 
 from .config import (
@@ -43,21 +45,154 @@ from .config import (
     DROP_MARKET_FEATURES,
     HOLDOUT_SEASON,
     LGBM_PARAMS,
+    LGBM_SPREAD_PARAMS,
     MODEL_PATH,
     MODELS_DIR,
     PROD_MAX_SEASON,
     SCHEMA_PATH,
+    SPREAD_MODEL_PATH,
+    SPREAD_MODEL_SCHEMA_PATH,
     TRAIN_MAX_SEASON,
     TRAINING_MATRIX_PATH,
     ensure_dirs,
 )
 from .data import CFBDataLoader
-from .features import build_week_features
+from .features import _align_to_schema, build_week_features
 
 
 # =============================================================================
 # Training
 # =============================================================================
+def train_spread(training_matrix: pd.DataFrame | None = None) -> dict:
+    """Train the spread-prediction model end-to-end.
+
+    ``training_matrix`` may be an in-memory DataFrame (used by tests). If None
+    the transformed parquet at ``TRAINING_MATRIX_PATH`` is loaded.
+    """
+    ensure_dirs()
+
+    if training_matrix is None:
+        print(f"Loading training matrix from {TRAINING_MATRIX_PATH}")
+        training_matrix = pd.read_parquet(TRAINING_MATRIX_PATH)
+    print(f"  {len(training_matrix)} rows, {training_matrix.shape[1]} columns")
+
+    train_mask = training_matrix["season"] <= TRAIN_MAX_SEASON
+    calib_mask = training_matrix["season"] == CALIB_SEASON
+    holdout_mask = training_matrix["season"] == HOLDOUT_SEASON
+
+    X_train, y_train = _split_features_target(training_matrix, train_mask, target="point_differential")
+    X_calib, y_calib = _split_features_target(training_matrix, calib_mask, target="point_differential")
+    X_holdout, y_holdout = _split_features_target(training_matrix, holdout_mask, target="point_differential")
+
+    for name, X in (("train", X_train), ("calibration", X_calib), ("holdout", X_holdout)):
+        if len(X) == 0:
+            raise RuntimeError(
+                f"{name} split is empty; training matrix must cover all needed seasons."
+            )
+
+    categorical_features = X_train.select_dtypes(include=["category"]).columns.tolist()
+    print(
+        f"  train={len(X_train)}, calib={len(X_calib)}, holdout={len(X_holdout)} | "
+        f"features={X_train.shape[1]}, categoricals={len(categorical_features)}"
+    )
+    if categorical_features:
+        print(f"  categorical: {categorical_features}")
+
+    # ----- Stage 1a -----
+    print(f"\nStage 1a: train season <= {TRAIN_MAX_SEASON}, early-stop on {CALIB_SEASON}")
+    eval_model = lgb.LGBMRegressor(**LGBM_SPREAD_PARAMS, n_estimators=3000)
+    eval_model.fit(
+        X_train,
+        y_train,
+        eval_set=[(X_calib, y_calib)],
+        eval_metric="l1",
+        categorical_feature=categorical_features if categorical_features else "auto",
+        callbacks=[
+            lgb.early_stopping(stopping_rounds=50, verbose=False),
+            lgb.log_evaluation(period=100),
+        ],
+    )
+    best_iteration = int(eval_model.best_iteration_ or eval_model.n_estimators_)
+    print(f"Stage 1a: best_iteration = {best_iteration}")
+
+    # ----- Stage 1b: holdout MAE/RMSE -----
+    pred = eval_model.predict(X_holdout, num_iteration=best_iteration)
+    metrics = {
+        "mae": float(mean_absolute_error(y_holdout, pred)),
+        "rmse": float(np.sqrt(mean_squared_error(y_holdout, pred))),
+        "sign_accuracy": float(np.mean(np.sign(pred) == np.sign(y_holdout))),
+        "n_games": int(len(y_holdout)),
+    }
+    _print_metrics(f"honest {HOLDOUT_SEASON} holdout (margin)", metrics)
+
+    # ----- Stage 2: production retrain -----
+    print(f"\nStage 2: train production on season <= {PROD_MAX_SEASON}, n_estimators={best_iteration}")
+    prod_mask = training_matrix["season"] <= PROD_MAX_SEASON
+    X_prod, y_prod = _split_features_target(training_matrix, prod_mask, target="point_differential")
+
+    prod_categoricals = X_prod.select_dtypes(include=["category"]).columns.tolist()
+    if set(prod_categoricals) != set(categorical_features):
+        raise RuntimeError(
+            "Categorical column mismatch between stages: "
+            f"eval={sorted(categorical_features)}, prod={sorted(prod_categoricals)}"
+        )
+
+    print(f"  training rows: {len(X_prod)} | features: {X_prod.shape[1]}")
+    prod_model = lgb.LGBMRegressor(**LGBM_SPREAD_PARAMS, n_estimators=best_iteration)
+    prod_model.fit(
+        X_prod,
+        y_prod,
+        categorical_feature=categorical_features if categorical_features else "auto",
+    )
+
+    # ----- Persist -----
+    MODELS_DIR.mkdir(parents=True, exist_ok=True)
+    prod_model.booster_.save_model(str(SPREAD_MODEL_PATH))
+    print(f"\nSaved booster to {SPREAD_MODEL_PATH}")
+
+    categorical_values = {
+        col: [v for v in X_prod[col].cat.categories.tolist() if pd.notna(v)]
+        for col in categorical_features
+    }
+    schema = {
+        "task": "regression",
+        "target": "point_differential",
+        "feature_columns": X_prod.columns.tolist(),
+        "categorical_features": categorical_features,
+        "categorical_values": categorical_values,
+        "excluded_features": DROP_MARKET_FEATURES,
+        "market_independent": True,
+        "honest_holdout_metrics": metrics,
+        "production_model_metrics": {
+            "n_training_games": int(len(X_prod)),
+            "n_features": int(X_prod.shape[1]),
+            "best_iteration": best_iteration,
+            "train_max_season": PROD_MAX_SEASON,
+            "eval_train_max_season": TRAIN_MAX_SEASON,
+            "holdout_season": HOLDOUT_SEASON,
+        },
+        "lightgbm_version": lgb.__version__,
+        "trained_at": datetime.now(timezone.utc).isoformat(),
+    }
+    with open(SPREAD_MODEL_SCHEMA_PATH, "w") as fh:
+        json.dump(schema, fh, indent=2, default=str)
+    print(f"Saved schema to {SPREAD_MODEL_SCHEMA_PATH}")
+
+    print("\nTop 10 features by importance:")
+    importance_df = pd.DataFrame({
+        "feature": X_prod.columns,
+        "importance": prod_model.feature_importances_,
+    }).sort_values("importance", ascending=False)
+    for i, (_, row) in enumerate(importance_df.head(10).iterrows(), 1):
+        print(f"  {i:>2}. {row['feature']:<45} {row['importance']:>7.1f}")
+
+    return {
+        "best_iteration": best_iteration,
+        "honest_holdout_metrics": metrics,
+        "model_path": str(SPREAD_MODEL_PATH),
+        "schema_path": str(SPREAD_MODEL_SCHEMA_PATH),
+    }
+
 def train(training_matrix: pd.DataFrame | None = None) -> dict:
     """Train the winner-prediction model end-to-end.
 
@@ -238,12 +373,18 @@ def train(training_matrix: pd.DataFrame | None = None) -> dict:
     }
 
 
-def _split_features_target(df: pd.DataFrame, mask: pd.Series) -> tuple[pd.DataFrame, pd.Series]:
+def _split_features_target(df: pd.DataFrame, mask: pd.Series, target: str="home_win") -> tuple[pd.DataFrame, pd.Series]:
     subset = df[mask]
     drop_cols = DROP_COLUMNS + [c for c in DROP_MARKET_FEATURES if c in subset.columns]
     X = subset.drop(columns=drop_cols)
-    y = subset["home_win"].astype(int)
-    return X, y
+    y = subset[target]
+    if target == "home_win":
+        y = y.astype(int)
+    else: 
+        y = pd.to_numeric(y, errors="coerce")
+    
+    valid = y.notna()
+    return X.loc[valid], y.loc[valid]
 
 
 def _compute_metrics(y_true: np.ndarray, y_pred_proba: np.ndarray) -> dict:
@@ -296,6 +437,31 @@ def load(
         raise ValueError(f"Schema is missing required keys: {missing}")
 
     return booster, schema
+
+
+def _predict_margins(X: pd.DataFrame) -> tuple[np.ndarray | None, dict | None]:
+    """Run the spread booster on the same feature matrix, if artifacts exist."""
+    if not SPREAD_MODEL_PATH.exists() or not SPREAD_MODEL_SCHEMA_PATH.exists():
+        print("Spread model not found; skipping predicted_margin.")
+        return None, None
+
+    spread_booster, spread_schema = load(SPREAD_MODEL_PATH, SPREAD_MODEL_SCHEMA_PATH)
+    X_spread = X
+    expected = spread_schema.get("feature_columns") or []
+    if list(X.columns) != expected:
+        X_spread = _align_to_schema(X, spread_schema)
+
+    margins = np.asarray(spread_booster.predict(X_spread), dtype=float)
+    holdout = spread_schema.get("honest_holdout_metrics") or {}
+    meta = {
+        "trained_at": spread_schema.get("trained_at"),
+        "holdout_mae": _optional_float(holdout.get("mae")),
+        "holdout_rmse": _optional_float(holdout.get("rmse")),
+        "holdout_sign_accuracy": _optional_float(holdout.get("sign_accuracy")),
+    }
+    mae = meta["holdout_mae"]
+    print(f"Spread holdout MAE={mae:.2f}" if mae is not None else "Spread model loaded")
+    return margins, meta
 
 
 def apply_calibration(raw_probs: np.ndarray, schema: dict) -> np.ndarray:
@@ -351,8 +517,11 @@ def predict_week(
     raw_probs = booster.predict(X)
     calibrated = apply_calibration(raw_probs, schema)
 
+    margins, spread_meta = _predict_margins(X)
+
     games = []
-    for i, (_, game) in enumerate(week_games.head(len(calibrated)).iterrows()):
+    n = len(calibrated)
+    for i, (_, game) in enumerate(week_games.head(n).iterrows()):
         home_prob = float(calibrated[i])
         away_prob = 1.0 - home_prob
         home_team = game["homeTeam"]
@@ -371,6 +540,9 @@ def predict_week(
             "home_win_probability": round(home_prob, 4),
             "predicted_winner": predicted_winner,
             "confidence": round(max(home_prob, away_prob), 4),
+            "predicted_margin": (
+                round(float(margins[i]), 1) if margins is not None else None
+            ),
         })
 
     games.sort(key=lambda g: (g["kickoff"] or "", -g["confidence"]))
@@ -379,7 +551,7 @@ def predict_week(
         "season": season,
         "week": week,
         "generated_at": datetime.now(timezone.utc).isoformat(),
-        "model": _model_meta(schema),
+        "model": {**_model_meta(schema), "spread": spread_meta},
         "games": games,
     }
     print(f"Produced {len(games)} predictions")

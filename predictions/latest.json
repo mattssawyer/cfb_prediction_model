@@ -1,15 +1,21 @@
 {
   "season": 2026,
   "week": 1,
-  "generated_at": "2026-08-13T03:53:52.451684+00:00",
+  "generated_at": "2026-08-17T03:17:18.481250+00:00",
   "model": {
-    "trained_at": "2026-08-13T03:53:41.719520+00:00",
+    "trained_at": "2026-08-17T03:14:57.118404+00:00",
     "market_independent": true,
     "calibration_method": "none",
     "holdout_variant": "uncalibrated",
     "holdout_accuracy": 0.7156398104265402,
     "holdout_auc": 0.7588831449516633,
-    "holdout_brier": 0.1941896168109069
+    "holdout_brier": 0.1941896168109069,
+    "spread": {
+      "trained_at": "2026-08-17T03:14:59.020508+00:00",
+      "holdout_mae": 12.895408657833148,
+      "holdout_rmse": 16.266611850730747,
+      "holdout_sign_accuracy": 0.716824644549763
+    }
   },
   "games": [
     {
@@ -24,7 +30,8 @@
       "conference_game": false,
       "home_win_probability": 0.627,
       "predicted_winner": "TCU",
-      "confidence": 0.627
+      "confidence": 0.627,
+      "predicted_margin": 7.8
     },
     {
       "id": 401864494,
@@ -38,7 +45,8 @@
       "conference_game": false,
       "home_win_probability": 0.8669,
       "predicted_winner": "USC",
-      "confidence": 0.8669
+      "confidence": 0.8669,
+      "predicted_margin": 13.3
     },
     {
       "id": 401858202,
@@ -52,7 +60,8 @@
       "conference_game": true,
       "home_win_probability": 0.4835,
       "predicted_winner": "NC State",
-      "confidence": 0.5165
+      "confidence": 0.5165,
+      "predicted_margin": 1.2
     },
     {
       "id": 401864577,
@@ -66,7 +75,8 @@
       "conference_game": false,
       "home_win_probability": 0.5913,
       "predicted_winner": "North Dakota State",
-      "confidence": 0.5913
+      "confidence": 0.5913,
+      "predicted_margin": 2.4
     },
     {
       "id": 401866408,
@@ -80,7 +90,8 @@
       "conference_game": true,
       "home_win_probability": 0.5556,
       "predicted_winner": "Eastern Michigan",
-      "confidence": 0.5556
+      "confidence": 0.5556,
+      "predicted_margin": 2.2
     },
     {
       "id": 401864570,
@@ -94,7 +105,8 @@
       "conference_game": false,
       "home_win_probability": 0.803,
       "predicted_winner": "Florida State",
-      "confidence": 0.803
+      "confidence": 0.803,
+      "predicted_margin": 13.2
     },
     {
       "id": 401858201,
@@ -108,7 +120,8 @@
       "conference_game": false,
       "home_win_probability": 0.3973,
       "predicted_winner": "Hawai'i",
-      "confidence": 0.6027
+      "confidence": 0.6027,
+      "predicted_margin": -2.0
     },
     {
       "id": 401862693,
@@ -122,7 +135,8 @@
       "conference_game": false,
       "home_win_probability": 0.6262,
       "predicted_winner": "UNLV",
-      "confidence": 0.6262
+      "confidence": 0.6262,
+      "predicted_margin": 7.2
     },
     {
       "id": 401858423,
@@ -136,7 +150,8 @@
       "conference_game": false,
       "home_win_probability": 0.8588,
       "predicted_winner": "Rutgers",
-      "confidence": 0.8588
+      "confidence": 0.8588,
+      "predicted_margin": 24.6
     },
     {
       "id": 401858204,
@@ -150,7 +165,8 @@
       "conference_game": false,
       "home_win_probability": 0.7492,
       "predicted_winner": "Wake Forest",
-      "confidence": 0.7492
+      "confidence": 0.7492,
+      "predicted_margin": 18.0
     },
     {
       "id": 401856776,
@@ -164,7 +180,8 @@
       "conference_game": false,
       "home_win_probability": 0.5855,
       "predicted_winner": "Georgia Tech",
-      "confidence": 0.5855
+      "confidence": 0.5855,
+      "predicted_margin": 5.2
     },
     {
       "id": 401858424,
@@ -178,7 +195,8 @@
       "conference_game": false,
       "home_win_probability": 0.5533,
       "predicted_winner": "Illinois",
-      "confidence": 0.5533
+      "confidence": 0.5533,
+      "predicted_margin": 1.1
     },
     {
       "id": 401864495,
@@ -192,7 +210,8 @@
       "conference_game": false,
       "home_win_probability": 0.8541,
       "predicted_winner": "Eastern Michigan",
-      "confidence": 0.8541
+      "confidence": 0.8541,
+      "predicted_margin": 19.2
     },
     {
       "id": 401858429,
@@ -206,7 +225,8 @@
       "conference_game": false,
       "home_win_probability": 0.8145,
       "predicted_winner": "Michigan State",
-      "confidence": 0.8145
+      "confidence": 0.8145,
+      "predicted_margin": 10.3
     },
     {
       "id": 401856664,
@@ -220,7 +240,8 @@
       "conference_game": false,
       "home_win_probability": 0.4742,
       "predicted_winner": "UTEP",
-      "confidence": 0.5258
+      "confidence": 0.5258,
+      "predicted_margin": -1.3
     },
     {
       "id": 401858436,
@@ -234,7 +255,8 @@
       "conference_game": false,
       "home_win_probability": 0.7107,
       "predicted_winner": "USC",
-      "confidence": 0.7107
+      "confidence": 0.7107,
+      "predicted_margin": 10.4
     },
     {
       "id": 401858206,
@@ -248,7 +270,8 @@
       "conference_game": true,
       "home_win_probability": 0.6984,
       "predicted_winner": "Stanford",
-      "confidence": 0.6984
+      "confidence": 0.6984,
+      "predicted_margin": 8.5
     },
     {
       "id": 401858425,
@@ -262,7 +285,8 @@
       "conference_game": false,
       "home_win_probability": 0.9286,
       "predicted_winner": "Indiana",
-      "confidence": 0.9286
+      "confidence": 0.9286,
+      "predicted_margin": 25.9
     },
     {
       "id": 401858430,
@@ -276,7 +300,8 @@
       "conference_game": false,
       "home_win_probability": 0.868,
       "predicted_winner": "Nebraska",
-      "confidence": 0.868
+      "confidence": 0.868,
+      "predicted_margin": 15.8
     },
     {
       "id": 401856634,
@@ -290,7 +315,8 @@
       "conference_game": false,
       "home_win_probability": 0.75,
       "predicted_winner": "Alabama",
-      "confidence": 0.75
+      "confidence": 0.75,
+      "predicted_margin": 14.3
     },
     {
       "id": 401869960,
@@ -304,7 +330,8 @@
       "conference_game": false,
       "home_win_probability": 0.7085,
       "predicted_winner": "James Madison",
-      "confidence": 0.7085
+      "confidence": 0.7085,
+      "predicted_margin": 6.3
     },
     {
       "id": 401858207,
@@ -318,7 +345,8 @@
       "conference_game": false,
       "home_win_probability": 0.6678,
       "predicted_winner": "Pittsburgh",
-      "confidence": 0.6678
+      "confidence": 0.6678,
+      "predicted_margin": 6.1
     },
     {
       "id": 401856780,
@@ -332,7 +360,8 @@
       "conference_game": false,
       "home_win_probability": 0.63,
       "predicted_winner": "West Virginia",
-      "confidence": 0.63
+      "confidence": 0.63,
+      "predicted_margin": 5.1
     },
     {
       "id": 401856778,
@@ -346,7 +375,8 @@
       "conference_game": false,
       "home_win_probability": 0.6219,
       "predicted_winner": "Houston",
-      "confidence": 0.6219
+      "confidence": 0.6219,
+      "predicted_margin": 9.4
     },
     {
       "id": 401858432,
@@ -360,7 +390,8 @@
       "conference_game": false,
       "home_win_probability": 0.8021,
       "predicted_winner": "Ohio State",
-      "confidence": 0.8021
+      "confidence": 0.8021,
+      "predicted_margin": 10.3
     },
     {
       "id": 401856665,
@@ -374,7 +405,8 @@
       "conference_game": false,
       "home_win_probability": 0.5861,
       "predicted_winner": "South Carolina",
-      "confidence": 0.5861
+      "confidence": 0.5861,
+      "predicted_margin": 2.4
     },
     {
       "id": 401856777,
@@ -388,7 +420,8 @@
       "conference_game": false,
       "home_win_probability": 0.7849,
       "predicted_winner": "Cincinnati",
-      "confidence": 0.7849
+      "confidence": 0.7849,
+      "predicted_margin": 13.2
     },
     {
       "id": 401858209,
@@ -402,7 +435,8 @@
       "conference_game": false,
       "home_win_probability": 0.671,
       "predicted_winner": "Duke",
-      "confidence": 0.671
+      "confidence": 0.671,
+      "predicted_margin": 5.2
     },
     {
       "id": 401858433,
@@ -416,7 +450,8 @@
       "conference_game": false,
       "home_win_probability": 0.589,
       "predicted_winner": "Oregon",
-      "confidence": 0.589
+      "confidence": 0.589,
+      "predicted_margin": 6.1
     },
     {
       "id": 401858434,
@@ -430,7 +465,8 @@
       "conference_game": false,
       "home_win_probability": 0.5684,
       "predicted_winner": "Penn State",
-      "confidence": 0.5684
+      "confidence": 0.5684,
+      "predicted_margin": 0.2
     },
     {
       "id": 401856636,
@@ -444,7 +480,8 @@
       "conference_game": false,
       "home_win_probability": 0.5484,
       "predicted_winner": "Auburn",
-      "confidence": 0.5484
+      "confidence": 0.5484,
+      "predicted_margin": 4.6
     },
     {
       "id": 401856667,
@@ -458,7 +495,8 @@
       "conference_game": false,
       "home_win_probability": 0.5116,
       "predicted_winner": "Texas",
-      "confidence": 0.5116
+      "confidence": 0.5116,
+      "predicted_margin": 0.8
     },
     {
       "id": 401856772,
@@ -472,7 +510,8 @@
       "conference_game": false,
       "home_win_probability": 0.8527,
       "predicted_winner": "Tulsa",
-      "confidence": 0.8527
+      "confidence": 0.8527,
+      "predicted_margin": 15.5
     },
     {
       "id": 401858426,
@@ -486,7 +525,8 @@
       "conference_game": false,
       "home_win_probability": 0.772,
       "predicted_winner": "Iowa",
-      "confidence": 0.772
+      "confidence": 0.772,
+      "predicted_margin": 10.1
     },
     {
       "id": 401860878,
@@ -500,7 +540,8 @@
       "conference_game": false,
       "home_win_probability": 0.7701,
       "predicted_winner": "Colorado State",
-      "confidence": 0.7701
+      "confidence": 0.7701,
+      "predicted_margin": 10.5
     },
     {
       "id": 401862699,
@@ -514,7 +555,8 @@
       "conference_game": false,
       "home_win_probability": 0.7876,
       "predicted_winner": "South Florida",
-      "confidence": 0.7876
+      "confidence": 0.7876,
+      "predicted_margin": 10.8
     },
     {
       "id": 401862695,
@@ -528,7 +570,8 @@
       "conference_game": false,
       "home_win_probability": 0.7671,
       "predicted_winner": "Memphis",
-      "confidence": 0.7671
+      "confidence": 0.7671,
+      "predicted_margin": 8.6
     },
     {
       "id": 401870763,
@@ -542,7 +585,8 @@
       "conference_game": false,
       "home_win_probability": 0.6143,
       "predicted_winner": "Troy",
-      "confidence": 0.6143
+      "confidence": 0.6143,
+      "predicted_margin": 1.7
     },
     {
       "id": 401856668,
@@ -556,7 +600,8 @@
       "conference_game": false,
       "home_win_probability": 0.4695,
       "predicted_winner": "Missouri State",
-      "confidence": 0.5305
+      "confidence": 0.5305,
+      "predicted_margin": 3.5
     },
     {
       "id": 401856660,
@@ -570,7 +615,8 @@
       "conference_game": false,
       "home_win_probability": 0.627,
       "predicted_winner": "LSU",
-      "confidence": 0.627
+      "confidence": 0.627,
+      "predicted_margin": 5.9
     },
     {
       "id": 401856662,
@@ -584,7 +630,8 @@
       "conference_game": false,
       "home_win_probability": 0.3947,
       "predicted_winner": "UL Monroe",
-      "confidence": 0.6053
+      "confidence": 0.6053,
+      "predicted_margin": -2.8
     },
     {
       "id": 401858428,
@@ -598,7 +645,8 @@
       "conference_game": false,
       "home_win_probability": 0.5301,
       "predicted_winner": "Michigan",
-      "confidence": 0.5301
+      "confidence": 0.5301,
+      "predicted_margin": 2.2
     },
     {
       "id": 401856637,
@@ -612,7 +660,8 @@
       "conference_game": false,
       "home_win_probability": 0.5148,
       "predicted_winner": "Florida",
-      "confidence": 0.5148
+      "confidence": 0.5148,
+      "predicted_margin": 0.8
     },
     {
       "id": 401864498,
@@ -626,7 +675,8 @@
       "conference_game": false,
       "home_win_probability": 0.6969,
       "predicted_winner": "New Mexico",
-      "confidence": 0.6969
+      "confidence": 0.6969,
+      "predicted_margin": 9.1
     },
     {
       "id": 401864497,
@@ -640,7 +690,8 @@
       "conference_game": true,
       "home_win_probability": 0.6313,
       "predicted_winner": "Hawai'i",
-      "confidence": 0.6313
+      "confidence": 0.6313,
+      "predicted_margin": 7.1
     }
   ]
 }

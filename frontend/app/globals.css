@@ -8,6 +8,8 @@
   --color-hairline: #dcdcda;
   --color-accent: #2451b0;
   --color-accent-dark: #1a3a82;
+  --color-spread-plus: #b45c5c;
+  --color-spread-minus: #3d7a58;
 
   --font-sans: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-plex-mono), ui-monospace, "SF Mono", monospace;

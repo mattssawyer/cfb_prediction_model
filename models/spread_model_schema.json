@@ -1,4 +1,6 @@
 {
+  "task": "regression",
+  "target": "point_differential",
   "feature_columns": [
     "neutralSite",
     "conferenceGame",
@@ -395,35 +397,19 @@
   ],
   "market_independent": true,
   "honest_holdout_metrics": {
-    "uncalibrated": {
-      "accuracy": 0.7156398104265402,
-      "auc": 0.7588831449516633,
-      "brier": 0.1941896168109069,
-      "logloss": 0.5701255135535884,
-      "n_games": 844
-    },
-    "calibrated": {
-      "accuracy": 0.669431279620853,
-      "auc": 0.7538479511667981,
-      "brier": 0.1988968464664354,
-      "logloss": 0.6215093857438477,
-      "n_games": 844
-    }
-  },
-  "calibration": {
-    "method": "none",
-    "fitted_on_season": 2024,
-    "n_calibration_games": 816,
-    "reason": "calibrated_brier_exceeded_uncalibrated_on_holdout"
+    "mae": 12.895408657833148,
+    "rmse": 16.266611850730747,
+    "sign_accuracy": 0.716824644549763,
+    "n_games": 844
   },
   "production_model_metrics": {
     "n_training_games": 8513,
     "n_features": 325,
-    "best_iteration": 109,
+    "best_iteration": 143,
     "train_max_season": 2025,
     "eval_train_max_season": 2023,
     "holdout_season": 2025
   },
   "lightgbm_version": "4.6.0",
-  "trained_at": "2026-08-17T03:14:57.118404+00:00"
+  "trained_at": "2026-08-17T03:14:59.020508+00:00"
 }
