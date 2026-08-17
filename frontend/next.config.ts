@@ -18,7 +18,7 @@ const nextConfig: NextConfig = {
   // The predictions/ directory sits outside frontend/ in the repo. Include it
   // in the file tracing so `next build` inlines the JSON at build time.
   outputFileTracingIncludes: {
-    "/**/*": ["../predictions/**/*"],
+    "/**/*": ["../predictions/**/*", "../models/*_schema.json"],
   },
   // Static export doesn't run the Image Optimization API.
   images: { unoptimized: true },
