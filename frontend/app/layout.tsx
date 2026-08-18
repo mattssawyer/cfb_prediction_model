@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import Link from "next/link";
 import NavLinks from "@/components/nav-links";
+import { Analytics } from "@vercel/analytics/next"
 import "./globals.css";
 
 const sans = IBM_Plex_Sans({
@@ -28,6 +29,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${sans.variable} ${mono.variable}`}>
+      <Analytics />
       <body className="flex min-h-screen flex-col antialiased">
         <header className="bg-canvas">
           <div className="mx-auto flex max-w-5xl items-center justify-between gap-6 px-4 py-4 sm:px-6">
