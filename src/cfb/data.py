@@ -42,6 +42,33 @@ DATA_TYPES = (
 )
 
 
+def _as_numeric_score(series: pd.Series) -> pd.Series:
+    """Coerce a CFBD score column to float, treating unplayed placeholders as NA.
+
+    Recent CFBD payloads use ``[]`` (and sometimes ``""``) for ``homePoints`` /
+    ``awayPoints`` on games that have not been played. Those are not pandas NA,
+    so ``.notna()`` is True and arithmetic like ``home - away`` yields ``[]``,
+    which cannot be stored in a float column.
+    """
+
+    def _cell(value):
+        if value is None or isinstance(value, (list, tuple, dict)):
+            return np.nan
+        if isinstance(value, str) and value.strip() == "":
+            return np.nan
+        return value
+
+    return pd.to_numeric(series.map(_cell), errors="coerce")
+
+
+def _normalize_games(df: pd.DataFrame) -> pd.DataFrame:
+    out = df.copy()
+    for col in ("homePoints", "awayPoints"):
+        if col in out.columns:
+            out[col] = _as_numeric_score(out[col])
+    return out
+
+
 class CFBDataLoader:
     """CFBD API client with a parquet cache.
 
@@ -88,7 +115,7 @@ class CFBDataLoader:
             cached = self._read_cache("games", year)
             if cached is not None:
                 print(f"  games {year}: cached ({len(cached)} rows)")
-                return cached
+                return _normalize_games(cached)
 
         print(f"  games {year}: fetching from CFBD (call #{self.call_count + 1})")
         with cfbd.ApiClient(self.configuration) as api_client:
@@ -96,7 +123,7 @@ class CFBDataLoader:
             games = games_api.get_games(year=year)
             self._rate_limit()
 
-        df = pd.DataFrame.from_records([g.to_dict() for g in games])
+        df = _normalize_games(pd.DataFrame.from_records([g.to_dict() for g in games]))
         self._write_cache("games", year, df)
         return df
 
@@ -471,15 +498,13 @@ class CFBDataLoader:
 
         # Target variables: home_win and point_differential (only for completed games)
         if "homePoints" in ml_df.columns and "awayPoints" in ml_df.columns:
-            mask = ml_df["homePoints"].notna() & ml_df["awayPoints"].notna()
+            home_pts = _as_numeric_score(ml_df["homePoints"])
+            away_pts = _as_numeric_score(ml_df["awayPoints"])
+            mask = home_pts.notna() & away_pts.notna()
             ml_df["home_win"] = np.nan
             ml_df["point_differential"] = np.nan
-            ml_df.loc[mask, "home_win"] = (
-                ml_df.loc[mask, "homePoints"] > ml_df.loc[mask, "awayPoints"]
-            ).astype(int)
-            ml_df.loc[mask, "point_differential"] = (
-                ml_df.loc[mask, "homePoints"] - ml_df.loc[mask, "awayPoints"]
-            )
+            ml_df.loc[mask, "home_win"] = (home_pts.loc[mask] > away_pts.loc[mask]).astype(int)
+            ml_df.loc[mask, "point_differential"] = home_pts.loc[mask] - away_pts.loc[mask]
         else:
             ml_df["home_win"] = np.nan
             ml_df["point_differential"] = np.nan

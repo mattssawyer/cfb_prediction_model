@@ -341,11 +341,13 @@ def build_training_matrix(
     games_df = pd.concat(frames, ignore_index=True)
     print(f"Concatenated per-season games parquets: {len(games_df)} rows")
 
+    home_pts = pd.to_numeric(games_df["homePoints"], errors="coerce")
+    away_pts = pd.to_numeric(games_df["awayPoints"], errors="coerce")
     filtered = games_df[
         games_df["homeConference"].notna()
         & games_df["awayConference"].notna()
-        & games_df["homePoints"].notna()
-        & games_df["awayPoints"].notna()
+        & home_pts.notna()
+        & away_pts.notna()
     ]
     print(f"After FBS filter: {len(filtered)} rows")
 
