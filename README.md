@@ -5,7 +5,7 @@ model served as static JSON to a Next.js frontend.
 
 - **Backend**: Python package `cfb` (`src/cfb/`) with three CLI entry points
   (`cfb-train`, `cfb-pipeline`, `cfb-tune`).
-- **Frontend**: Next.js 16 App Router (`frontend/`), fully static export.
+- **Frontend**: Next.js App Router (`frontend/`), fully static export.
 - **Weekly refresh**: GitHub Actions cron (`.github/workflows/weekly.yml`).
 
 ## Repo layout
@@ -33,7 +33,7 @@ model served as static JSON to a Next.js frontend.
 └── pyproject.toml
 ```
 
-## The JSON contract
+## Predictions Structure
 
 Every weekly run produces one file at `predictions/{season}/week{N}.json`
 plus a copy at `predictions/latest.json`:
@@ -71,11 +71,6 @@ plus a copy at `predictions/latest.json`:
 }
 ```
 
-`calibration_method` is `"isotonic"` when the isotonic calibrator was shipped
-and `"none"` when training auto-disabled it (see the Model section).
-`holdout_variant` tells the frontend which metrics were actually reported —
-`calibrated` or `uncalibrated` — so the numbers always describe the booster
-the app is running.
 
 The frontend reads these files at build time and pre-renders every route as
 static HTML. There is no backend server.
@@ -109,11 +104,8 @@ Get a CFBD API key at <https://collegefootballdata.com/key>.
 - Binary classifier: LightGBM (`objective="binary"`), currently 109 trees.
 - Time-based split (configured for the 2026 season):
   1. Train on `season <= 2023`, early-stop on `season == 2024`.
-  2. Fit isotonic calibration on the 2024 fold. If calibrated Brier is worse
-     than uncalibrated on the honest holdout, calibration is auto-disabled
-     and the schema records `method = "none"`.
-  3. Score honest holdout on `season == 2025` (both variants).
-  4. Retrain production on `season <= 2025` with the frozen `best_iteration`.
+  2. Score honest holdout on `season == 2025` (both variants).
+  3. Retrain production on `season <= 2025` with the frozen `best_iteration`.
 - Pregame market features (`spread`, `homeWinProbability`, …) are dropped from
   training by default. They're only available for ~12% of upcoming games, and
   including them makes the model collapse to near-50/50 for the rest.
@@ -121,7 +113,7 @@ Get a CFBD API key at <https://collegefootballdata.com/key>.
 - Hyperparameters found via a 200-trial Optuna TPE sweep on the same
   train → early-stop split; rerun with `python scripts/tune.py --n-trials 200`.
 
-### Honest holdout metrics
+### Metrics
 
 The honest holdout is the 2025 season — the model never sees it during
 training or hyperparameter search, so these numbers are an unbiased estimate
@@ -138,7 +130,7 @@ of what the shipped booster will do on future games.
 Calibration hurt Brier on 2025 (raw 0.194 → calibrated 0.199), so it is
 currently disabled and the app reports uncalibrated probabilities.
 
-## Anatomy of a weekly run
+## Weekly Runs
 
 ```
 python scripts/pipeline.py
