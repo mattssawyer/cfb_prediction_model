@@ -2,6 +2,6 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "redirects": [
     { "source": "/", "destination": "/cfb-model", "permanent": false },
-    { "source": "/finance-dashboard/:path*", "destination": "personal-finance-dashboard-production-973d.up.railway.app" }
+    { "source": "/finance-dashboard", "destination": "personal-finance-dashboard-production-973d.up.railway.app" }
   ]
 }
