@@ -412,17 +412,27 @@ class CFBDataLoader:
         return combined
 
     def get_current_week(self, year: int, refresh: bool = True) -> int:
-        """Return the next week to predict.
+        """Return the week whose remaining FBS slate should be predicted next.
 
-        By default we refresh the games parquet so ``completed`` is up to date.
-        The returned week is (max completed week) + 1, or 1 if no games have
-        completed yet.
+        Uses the earliest week number that still has uncompleted FBS-vs-FBS
+        regular-season games. The old rule ``max(completed week) + 1`` jumped
+        ahead as soon as the first game in a week finished — e.g. after week 0
+        or Saturday week-1 kickoffs — even when most of that week was unplayed.
         """
         games = self.load_games(year, refresh=refresh)
-        completed = games[games["completed"] == True]  # noqa: E712
-        if completed.empty:
-            return 1
-        return int(completed["week"].max()) + 1
+        slate = games[
+            (games["homeClassification"] == "fbs")
+            & (games["awayClassification"] == "fbs")
+        ]
+        if "seasonType" in slate.columns:
+            slate = slate[slate["seasonType"] == "regular"]
+
+        upcoming = slate[slate["completed"] != True]  # noqa: E712
+        if upcoming.empty:
+            if slate.empty:
+                return 1
+            return int(slate["week"].max()) + 1
+        return int(upcoming["week"].min())
 
     # ------------------------------------------------------------------
     # ML feature-matrix construction
