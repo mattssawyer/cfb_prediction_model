@@ -1,4 +1,14 @@
+import { loadSeasonAccuracy } from "@/lib/accuracy";
+import { loadLatest } from "@/lib/predictions";
 import { fixed, loadTraining, pct } from "@/lib/training";
+
+function pctOrDash(n: number | null): string {
+  return n == null ? "—" : pct(n);
+}
+
+function fixedOrDash(n: number | null, digits: number): string {
+  return n == null ? "—" : fixed(n, digits);
+}
 
 function MetricList({
   rows,
@@ -26,6 +36,9 @@ function MetricList({
 
 export default function PerformancePage() {
   const { winner, spread } = loadTraining();
+  const latest = loadLatest();
+  const accuracy = latest ? loadSeasonAccuracy(latest.season) : null;
+  const season = latest?.season ?? new Date().getFullYear();
 
   return (
     <>
@@ -36,11 +49,57 @@ export default function PerformancePage() {
       </div>
       <div className="w-full max-w-2xl">
         <h2 className="mt-8 text-xl leading-none font-bold tracking-tight text-ink uppercase">
-          2026 Season Performance
+          {season} Season Performance
         </h2>
-        <p className="mt-3 text-ink">
-          The accuracy, AUC, MAE, and RMSE of the models will be updated weekly as the season progresses.
-        </p>
+        {accuracy && accuracy.season_to_date.games_graded > 0 ? (
+          <>
+            <p className="mt-3 text-ink">
+              Graded against final scores as games are played, updated every
+              Sunday alongside the new predictions.
+            </p>
+            <MetricList
+              rows={[
+                { label: "Games graded", value: String(accuracy.season_to_date.games_graded) },
+                { label: "Winner accuracy", value: pctOrDash(accuracy.season_to_date.binary_accuracy) },
+                { label: "Brier", value: fixedOrDash(accuracy.season_to_date.brier, 3) },
+                { label: "Spread MAE", value: fixedOrDash(accuracy.season_to_date.spread_mae, 1) },
+                { label: "Spread RMSE", value: fixedOrDash(accuracy.season_to_date.spread_rmse, 1) },
+                {
+                  label: "Spread sign accuracy",
+                  value: pctOrDash(accuracy.season_to_date.spread_sign_accuracy),
+                },
+              ]}
+            />
+            {accuracy.weeks.length > 1 ? (
+              <>
+                <h3 className="mt-10 font-mono text-xs uppercase tracking-[0.15em] text-ink-muted">
+                  By week
+                </h3>
+                <dl className="mt-4 divide-y divide-dotted divide-hairline border-y border-dotted border-hairline">
+                  {accuracy.weeks.map((w) => (
+                    <div
+                      key={w.week}
+                      className="flex items-baseline justify-between gap-4 py-2.5"
+                    >
+                      <dt className="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted">
+                        Week {w.week} ({w.games_graded} games)
+                      </dt>
+                      <dd className="font-mono text-sm tabular-nums leading-none text-ink">
+                        {pctOrDash(w.binary_accuracy)} win · {fixedOrDash(w.spread_mae, 1)} spread MAE
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </>
+            ) : null}
+          </>
+        ) : (
+          <p className="mt-3 text-ink">
+            No games have finished yet this season. Live accuracy, Brier, and
+            spread error will appear here once results roll in and the
+            pipeline grades them.
+          </p>
+        )}
         <h2 className="mt-8 text-xl leading-none font-bold tracking-tight text-ink uppercase">
           Training
         </h2>

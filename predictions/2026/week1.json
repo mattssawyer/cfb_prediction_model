@@ -31,7 +31,13 @@
       "home_win_probability": 0.6145,
       "predicted_winner": "TCU",
       "confidence": 0.6145,
-      "predicted_margin": 9.2
+      "predicted_margin": 9.2,
+      "actual_home_score": 10,
+      "actual_away_score": 15,
+      "actual_winner": "North Carolina",
+      "actual_margin": -5.0,
+      "correct": false,
+      "spread_error": 14.2
     },
     {
       "id": 401864494,
@@ -46,7 +52,13 @@
       "home_win_probability": 0.932,
       "predicted_winner": "USC",
       "confidence": 0.932,
-      "predicted_margin": 26.9
+      "predicted_margin": 26.9,
+      "actual_home_score": 42,
+      "actual_away_score": 26,
+      "actual_winner": "USC",
+      "actual_margin": 16.0,
+      "correct": true,
+      "spread_error": 10.9
     },
     {
       "id": 401858202,
@@ -61,7 +73,13 @@
       "home_win_probability": 0.4673,
       "predicted_winner": "NC State",
       "confidence": 0.5327,
-      "predicted_margin": 1.5
+      "predicted_margin": 1.5,
+      "actual_home_score": 34,
+      "actual_away_score": 8,
+      "actual_winner": "Virginia",
+      "actual_margin": 26.0,
+      "correct": false,
+      "spread_error": -24.5
     },
     {
       "id": 401864577,
@@ -76,7 +94,13 @@
       "home_win_probability": 0.5733,
       "predicted_winner": "North Dakota State",
       "confidence": 0.5733,
-      "predicted_margin": 2.6
+      "predicted_margin": 2.6,
+      "actual_home_score": 33,
+      "actual_away_score": 7,
+      "actual_winner": "North Dakota State",
+      "actual_margin": 26.0,
+      "correct": true,
+      "spread_error": -23.4
     },
     {
       "id": 401866408,
@@ -91,7 +115,13 @@
       "home_win_probability": 0.6122,
       "predicted_winner": "Eastern Michigan",
       "confidence": 0.6122,
-      "predicted_margin": 2.9
+      "predicted_margin": 2.9,
+      "actual_home_score": 28,
+      "actual_away_score": 17,
+      "actual_winner": "Eastern Michigan",
+      "actual_margin": 11.0,
+      "correct": true,
+      "spread_error": -8.1
     },
     {
       "id": 401864570,
@@ -106,7 +136,13 @@
       "home_win_probability": 0.9257,
       "predicted_winner": "Florida State",
       "confidence": 0.9257,
-      "predicted_margin": 27.7
+      "predicted_margin": 27.7,
+      "actual_home_score": 34,
+      "actual_away_score": 17,
+      "actual_winner": "Florida State",
+      "actual_margin": 17.0,
+      "correct": true,
+      "spread_error": 10.7
     },
     {
       "id": 401858201,
@@ -121,7 +157,13 @@
       "home_win_probability": 0.4673,
       "predicted_winner": "Hawai'i",
       "confidence": 0.5327,
-      "predicted_margin": 3.2
+      "predicted_margin": 3.2,
+      "actual_home_score": 37,
+      "actual_away_score": 27,
+      "actual_winner": "Stanford",
+      "actual_margin": 10.0,
+      "correct": false,
+      "spread_error": -6.8
     },
     {
       "id": 401862693,
@@ -136,7 +178,13 @@
       "home_win_probability": 0.6061,
       "predicted_winner": "UNLV",
       "confidence": 0.6061,
-      "predicted_margin": 8.4
+      "predicted_margin": 8.4,
+      "actual_home_score": 21,
+      "actual_away_score": 27,
+      "actual_winner": "Memphis",
+      "actual_margin": -6.0,
+      "correct": false,
+      "spread_error": 14.4
     },
     {
       "id": 401858423,
@@ -151,7 +199,13 @@
       "home_win_probability": 0.9201,
       "predicted_winner": "Rutgers",
       "confidence": 0.9201,
-      "predicted_margin": 30.5
+      "predicted_margin": 30.5,
+      "actual_home_score": null,
+      "actual_away_score": null,
+      "actual_winner": null,
+      "actual_margin": null,
+      "correct": null,
+      "spread_error": null
     },
     {
       "id": 401858204,
@@ -166,7 +220,13 @@
       "home_win_probability": 0.8523,
       "predicted_winner": "Wake Forest",
       "confidence": 0.8523,
-      "predicted_margin": 20.2
+      "predicted_margin": 20.2,
+      "actual_home_score": null,
+      "actual_away_score": null,
+      "actual_winner": null,
+      "actual_margin": null,
+      "correct": null,
+      "spread_error": null
     },
     {
       "id": 401856776,
@@ -181,7 +241,13 @@
       "home_win_probability": 0.6038,
       "predicted_winner": "Georgia Tech",
       "confidence": 0.6038,
-      "predicted_margin": 6.5
+      "predicted_margin": 6.5,
+      "actual_home_score": null,
+      "actual_away_score": null,
+      "actual_winner": null,
+      "actual_margin": null,
+      "correct": null,
+      "spread_error": null
     },
     {
       "id": 401858424,
@@ -196,7 +262,13 @@
       "home_win_probability": 0.6449,
       "predicted_winner": "Illinois",
       "confidence": 0.6449,
-      "predicted_margin": 4.4
+      "predicted_margin": 4.4,
+      "actual_home_score": null,
+      "actual_away_score": null,
+      "actual_winner": null,
+      "actual_margin": null,
+      "correct": null,
+      "spread_error": null
     },
     {
       "id": 401864495,
@@ -211,7 +283,13 @@
       "home_win_probability": 0.532,
       "predicted_winner": "Eastern Michigan",
       "confidence": 0.532,
-      "predicted_margin": 0.7
+      "predicted_margin": 0.7,
+      "actual_home_score": null,
+      "actual_away_score": null,
+      "actual_winner": null,
+      "actual_margin": null,
+      "correct": null,
+      "spread_error": null
     },
     {
       "id": 401858429,
@@ -226,7 +304,13 @@
       "home_win_probability": 0.9101,
       "predicted_winner": "Michigan State",
       "confidence": 0.9101,
-      "predicted_margin": 29.5
+      "predicted_margin": 29.5,
+      "actual_home_score": null,
+      "actual_away_score": null,
+      "actual_winner": null,
+      "actual_margin": null,
+      "correct": null,
+      "spread_error": null
     },
     {
       "id": 401856664,
@@ -241,7 +325,13 @@
       "home_win_probability": 0.7161,
       "predicted_winner": "Oklahoma",
       "confidence": 0.7161,
-      "predicted_margin": 13.2
+      "predicted_margin": 13.2,
+      "actual_home_score": null,
+      "actual_away_score": null,
+      "actual_winner": null,
+      "actual_margin": null,
+      "correct": null,
+      "spread_error": null
     },
     {
       "id": 401858206,
@@ -256,7 +346,13 @@
       "home_win_probability": 0.8201,
       "predicted_winner": "Stanford",
       "confidence": 0.8201,
-      "predicted_margin": 13.0
+      "predicted_margin": 13.0,
+      "actual_home_score": null,
+      "actual_away_score": null,
+      "actual_winner": null,
+      "actual_margin": null,
+      "correct": null,
+      "spread_error": null
     },
     {
       "id": 401858436,
@@ -271,7 +367,13 @@
       "home_win_probability": 0.5952,
       "predicted_winner": "USC",
       "confidence": 0.5952,
-      "predicted_margin": 6.0
+      "predicted_margin": 6.0,
+      "actual_home_score": null,
+      "actual_away_score": null,
+      "actual_winner": null,
+      "actual_margin": null,
+      "correct": null,
+      "spread_error": null
     },
     {
       "id": 401858430,
@@ -286,7 +388,13 @@
       "home_win_probability": 0.9704,
       "predicted_winner": "Nebraska",
       "confidence": 0.9704,
-      "predicted_margin": 41.3
+      "predicted_margin": 41.3,
+      "actual_home_score": null,
+      "actual_away_score": null,
+      "actual_winner": null,
+      "actual_margin": null,
+      "correct": null,
+      "spread_error": null
     },
     {
       "id": 401858425,
@@ -301,7 +409,13 @@
       "home_win_probability": 0.9526,
       "predicted_winner": "Indiana",
       "confidence": 0.9526,
-      "predicted_margin": 33.4
+      "predicted_margin": 33.4,
+      "actual_home_score": null,
+      "actual_away_score": null,
+      "actual_winner": null,
+      "actual_margin": null,
+      "correct": null,
+      "spread_error": null
     },
     {
       "id": 401856780,
@@ -316,7 +430,13 @@
       "home_win_probability": 0.8528,
       "predicted_winner": "West Virginia",
       "confidence": 0.8528,
-      "predicted_margin": 17.0
+      "predicted_margin": 17.0,
+      "actual_home_score": null,
+      "actual_away_score": null,
+      "actual_winner": null,
+      "actual_margin": null,
+      "correct": null,
+      "spread_error": null
     },
     {
       "id": 401869960,
@@ -331,7 +451,13 @@
       "home_win_probability": 0.842,
       "predicted_winner": "James Madison",
       "confidence": 0.842,
-      "predicted_margin": 20.3
+      "predicted_margin": 20.3,
+      "actual_home_score": null,
+      "actual_away_score": null,
+      "actual_winner": null,
+      "actual_margin": null,
+      "correct": null,
+      "spread_error": null
     },
     {
       "id": 401856778,
@@ -346,7 +472,13 @@
       "home_win_probability": 0.8001,
       "predicted_winner": "Houston",
       "confidence": 0.8001,
-      "predicted_margin": 18.4
+      "predicted_margin": 18.4,
+      "actual_home_score": null,
+      "actual_away_score": null,
+      "actual_winner": null,
+      "actual_margin": null,
+      "correct": null,
+      "spread_error": null
     },
     {
       "id": 401856634,
@@ -361,7 +493,13 @@
       "home_win_probability": 0.7428,
       "predicted_winner": "Alabama",
       "confidence": 0.7428,
-      "predicted_margin": 11.8
+      "predicted_margin": 11.8,
+      "actual_home_score": null,
+      "actual_away_score": null,
+      "actual_winner": null,
+      "actual_margin": null,
+      "correct": null,
+      "spread_error": null
     },
     {
       "id": 401858207,
@@ -376,7 +514,13 @@
       "home_win_probability": 0.8728,
       "predicted_winner": "Pittsburgh",
       "confidence": 0.8728,
-      "predicted_margin": 17.8
+      "predicted_margin": 17.8,
+      "actual_home_score": null,
+      "actual_away_score": null,
+      "actual_winner": null,
+      "actual_margin": null,
+      "correct": null,
+      "spread_error": null
     },
     {
       "id": 401858432,
@@ -391,7 +535,13 @@
       "home_win_probability": 0.5599,
       "predicted_winner": "Ohio State",
       "confidence": 0.5599,
-      "predicted_margin": 3.3
+      "predicted_margin": 3.3,
+      "actual_home_score": null,
+      "actual_away_score": null,
+      "actual_winner": null,
+      "actual_margin": null,
+      "correct": null,
+      "spread_error": null
     },
     {
       "id": 401856665,
@@ -406,7 +556,13 @@
       "home_win_probability": 0.7885,
       "predicted_winner": "South Carolina",
       "confidence": 0.7885,
-      "predicted_margin": 14.4
+      "predicted_margin": 14.4,
+      "actual_home_score": null,
+      "actual_away_score": null,
+      "actual_winner": null,
+      "actual_margin": null,
+      "correct": null,
+      "spread_error": null
     },
     {
       "id": 401858434,
@@ -421,7 +577,13 @@
       "home_win_probability": 0.9377,
       "predicted_winner": "Penn State",
       "confidence": 0.9377,
-      "predicted_margin": 23.5
+      "predicted_margin": 23.5,
+      "actual_home_score": null,
+      "actual_away_score": null,
+      "actual_winner": null,
+      "actual_margin": null,
+      "correct": null,
+      "spread_error": null
     },
     {
       "id": 401856777,
@@ -436,7 +598,13 @@
       "home_win_probability": 0.8981,
       "predicted_winner": "Cincinnati",
       "confidence": 0.8981,
-      "predicted_margin": 23.6
+      "predicted_margin": 23.6,
+      "actual_home_score": null,
+      "actual_away_score": null,
+      "actual_winner": null,
+      "actual_margin": null,
+      "correct": null,
+      "spread_error": null
     },
     {
       "id": 401858433,
@@ -451,7 +619,13 @@
       "home_win_probability": 0.5984,
       "predicted_winner": "Oregon",
       "confidence": 0.5984,
-      "predicted_margin": 2.8
+      "predicted_margin": 2.8,
+      "actual_home_score": null,
+      "actual_away_score": null,
+      "actual_winner": null,
+      "actual_margin": null,
+      "correct": null,
+      "spread_error": null
     },
     {
       "id": 401856667,
@@ -466,7 +640,13 @@
       "home_win_probability": 0.5875,
       "predicted_winner": "Texas",
       "confidence": 0.5875,
-      "predicted_margin": 7.2
+      "predicted_margin": 7.2,
+      "actual_home_score": null,
+      "actual_away_score": null,
+      "actual_winner": null,
+      "actual_margin": null,
+      "correct": null,
+      "spread_error": null
     },
     {
       "id": 401858209,
@@ -481,7 +661,13 @@
       "home_win_probability": 0.5756,
       "predicted_winner": "Duke",
       "confidence": 0.5756,
-      "predicted_margin": 3.5
+      "predicted_margin": 3.5,
+      "actual_home_score": null,
+      "actual_away_score": null,
+      "actual_winner": null,
+      "actual_margin": null,
+      "correct": null,
+      "spread_error": null
     },
     {
       "id": 401856636,
@@ -496,7 +682,13 @@
       "home_win_probability": 0.5629,
       "predicted_winner": "Auburn",
       "confidence": 0.5629,
-      "predicted_margin": 5.0
+      "predicted_margin": 5.0,
+      "actual_home_score": null,
+      "actual_away_score": null,
+      "actual_winner": null,
+      "actual_margin": null,
+      "correct": null,
+      "spread_error": null
     },
     {
       "id": 401856772,
@@ -511,7 +703,13 @@
       "home_win_probability": 0.9473,
       "predicted_winner": "Tulsa",
       "confidence": 0.9473,
-      "predicted_margin": 32.2
+      "predicted_margin": 32.2,
+      "actual_home_score": null,
+      "actual_away_score": null,
+      "actual_winner": null,
+      "actual_margin": null,
+      "correct": null,
+      "spread_error": null
     },
     {
       "id": 401858426,
@@ -526,7 +724,13 @@
       "home_win_probability": 0.8048,
       "predicted_winner": "Iowa",
       "confidence": 0.8048,
-      "predicted_margin": 13.2
+      "predicted_margin": 13.2,
+      "actual_home_score": null,
+      "actual_away_score": null,
+      "actual_winner": null,
+      "actual_margin": null,
+      "correct": null,
+      "spread_error": null
     },
     {
       "id": 401860878,
@@ -541,7 +745,13 @@
       "home_win_probability": 0.7725,
       "predicted_winner": "Colorado State",
       "confidence": 0.7725,
-      "predicted_margin": 13.6
+      "predicted_margin": 13.6,
+      "actual_home_score": null,
+      "actual_away_score": null,
+      "actual_winner": null,
+      "actual_margin": null,
+      "correct": null,
+      "spread_error": null
     },
     {
       "id": 401870763,
@@ -556,7 +766,13 @@
       "home_win_probability": 0.9014,
       "predicted_winner": "Troy",
       "confidence": 0.9014,
-      "predicted_margin": 18.7
+      "predicted_margin": 18.7,
+      "actual_home_score": null,
+      "actual_away_score": null,
+      "actual_winner": null,
+      "actual_margin": null,
+      "correct": null,
+      "spread_error": null
     },
     {
       "id": 401862695,
@@ -571,7 +787,13 @@
       "home_win_probability": 0.8836,
       "predicted_winner": "Memphis",
       "confidence": 0.8836,
-      "predicted_margin": 24.7
+      "predicted_margin": 24.7,
+      "actual_home_score": null,
+      "actual_away_score": null,
+      "actual_winner": null,
+      "actual_margin": null,
+      "correct": null,
+      "spread_error": null
     },
     {
       "id": 401862699,
@@ -586,7 +808,13 @@
       "home_win_probability": 0.8123,
       "predicted_winner": "South Florida",
       "confidence": 0.8123,
-      "predicted_margin": 13.3
+      "predicted_margin": 13.3,
+      "actual_home_score": null,
+      "actual_away_score": null,
+      "actual_winner": null,
+      "actual_margin": null,
+      "correct": null,
+      "spread_error": null
     },
     {
       "id": 401856668,
@@ -601,7 +829,13 @@
       "home_win_probability": 0.5098,
       "predicted_winner": "Texas A&M",
       "confidence": 0.5098,
-      "predicted_margin": 4.9
+      "predicted_margin": 4.9,
+      "actual_home_score": null,
+      "actual_away_score": null,
+      "actual_winner": null,
+      "actual_margin": null,
+      "correct": null,
+      "spread_error": null
     },
     {
       "id": 401856662,
@@ -616,7 +850,13 @@
       "home_win_probability": 0.6629,
       "predicted_winner": "Mississippi State",
       "confidence": 0.6629,
-      "predicted_margin": 7.0
+      "predicted_margin": 7.0,
+      "actual_home_score": null,
+      "actual_away_score": null,
+      "actual_winner": null,
+      "actual_margin": null,
+      "correct": null,
+      "spread_error": null
     },
     {
       "id": 401856660,
@@ -631,7 +871,13 @@
       "home_win_probability": 0.3773,
       "predicted_winner": "Clemson",
       "confidence": 0.6227,
-      "predicted_margin": -3.2
+      "predicted_margin": -3.2,
+      "actual_home_score": null,
+      "actual_away_score": null,
+      "actual_winner": null,
+      "actual_margin": null,
+      "correct": null,
+      "spread_error": null
     },
     {
       "id": 401858428,
@@ -646,7 +892,13 @@
       "home_win_probability": 0.5403,
       "predicted_winner": "Michigan",
       "confidence": 0.5403,
-      "predicted_margin": 2.6
+      "predicted_margin": 2.6,
+      "actual_home_score": null,
+      "actual_away_score": null,
+      "actual_winner": null,
+      "actual_margin": null,
+      "correct": null,
+      "spread_error": null
     },
     {
       "id": 401856637,
@@ -661,7 +913,13 @@
       "home_win_probability": 0.5764,
       "predicted_winner": "Florida",
       "confidence": 0.5764,
-      "predicted_margin": 2.7
+      "predicted_margin": 2.7,
+      "actual_home_score": null,
+      "actual_away_score": null,
+      "actual_winner": null,
+      "actual_margin": null,
+      "correct": null,
+      "spread_error": null
     },
     {
       "id": 401864498,
@@ -676,7 +934,13 @@
       "home_win_probability": 0.7823,
       "predicted_winner": "New Mexico",
       "confidence": 0.7823,
-      "predicted_margin": 16.5
+      "predicted_margin": 16.5,
+      "actual_home_score": null,
+      "actual_away_score": null,
+      "actual_winner": null,
+      "actual_margin": null,
+      "correct": null,
+      "spread_error": null
     },
     {
       "id": 401864497,
@@ -691,7 +955,13 @@
       "home_win_probability": 0.7652,
       "predicted_winner": "Hawai'i",
       "confidence": 0.7652,
-      "predicted_margin": 13.5
+      "predicted_margin": 13.5,
+      "actual_home_score": null,
+      "actual_away_score": null,
+      "actual_winner": null,
+      "actual_margin": null,
+      "correct": null,
+      "spread_error": null
     }
   ]
 }

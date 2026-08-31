@@ -30,6 +30,7 @@ sys.path.insert(0, str(_ROOT / "src"))
 
 from cfb.config import PREDICTIONS_DIR, detect_current_season, ensure_dirs
 from cfb.data import CFBDataLoader
+from cfb.evaluate import grade_all
 from cfb.model import predict_week
 
 
@@ -74,6 +75,9 @@ def write_prediction(payload: dict, out_path: Path) -> None:
 def main() -> int:
     args = parse_args()
     ensure_dirs()
+
+    print("\n=== Grading past predictions ===")
+    grade_all()
 
     season, week = resolve_target(args.season, args.week)
     out = output_path(season, week)

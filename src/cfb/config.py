@@ -25,6 +25,7 @@ SCHEMA_PATH = MODELS_DIR / "winner_model_schema.json"
 SPREAD_MODEL_PATH = MODELS_DIR / "spread_model.txt"
 SPREAD_MODEL_SCHEMA_PATH = MODELS_DIR / "spread_model_schema.json"
 TRAINING_MATRIX_PATH = DATA_DIR / "training_matrix.parquet"
+ACCURACY_PATH = PREDICTIONS_DIR / "accuracy.json"
 
 HISTORICAL_START_YEAR = 2015
 HISTORICAL_END_YEAR = 2025

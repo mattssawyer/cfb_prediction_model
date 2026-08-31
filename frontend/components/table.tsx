@@ -120,6 +120,20 @@ export default function Table({ data }: { data: Game[] }) {
                 {game.home_conference ?? "—"}
               </div>
             </div>
+
+            {game.correct !== null ? (
+              <div className="col-span-3 flex flex-wrap items-center justify-between gap-x-3 gap-y-1 border-t border-dotted border-hairline pt-1.5 font-mono text-[10px] uppercase tracking-wide sm:col-span-4">
+                <span className={game.correct ? "text-spread-minus" : "text-spread-plus"}>
+                  {game.correct ? "✓ correct" : "✗ missed"} · final {game.away_team}{" "}
+                  {game.actual_away_score}–{game.actual_home_score} {game.home_team}
+                </span>
+                {game.spread_error != null ? (
+                  <span className="text-ink-muted">
+                    spread miss {Math.abs(Math.round(game.spread_error * 10) / 10).toFixed(1)} pts
+                  </span>
+                ) : null}
+              </div>
+            ) : null}
           </div>
         ))}
       </div>

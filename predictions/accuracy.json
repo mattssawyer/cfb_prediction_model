@@ -1,0 +1,25 @@
+{
+  "2026": {
+    "season_to_date": {
+      "games_graded": 8,
+      "binary_accuracy": 0.5,
+      "brier": 0.2069,
+      "spread_games_graded": 8,
+      "spread_mae": 14.12,
+      "spread_rmse": 15.42,
+      "spread_sign_accuracy": 0.75
+    },
+    "weeks": [
+      {
+        "week": 1,
+        "games_graded": 8,
+        "binary_accuracy": 0.5,
+        "brier": 0.2069,
+        "spread_games_graded": 8,
+        "spread_mae": 14.12,
+        "spread_rmse": 15.42,
+        "spread_sign_accuracy": 0.75
+      }
+    ]
+  }
+}
