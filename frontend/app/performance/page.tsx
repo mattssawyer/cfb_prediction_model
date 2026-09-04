@@ -55,7 +55,8 @@ export default function PerformancePage() {
           <>
             <p className="mt-3 text-ink">
               Graded against final scores as games are played, updated every
-              Sunday alongside the new predictions.
+              Sunday alongside the new predictions. ATS is whether the model
+              picked the covering side of the Vegas home line.
             </p>
             <MetricList
               rows={[
@@ -67,6 +68,14 @@ export default function PerformancePage() {
                 {
                   label: "Spread sign accuracy",
                   value: pctOrDash(accuracy.season_to_date.spread_sign_accuracy),
+                },
+                {
+                  label: "ATS vs Vegas",
+                  value: pctOrDash(accuracy.season_to_date.ats_accuracy ?? null),
+                },
+                {
+                  label: "ATS games",
+                  value: String(accuracy.season_to_date.ats_games_graded ?? 0),
                 },
               ]}
             />
@@ -86,6 +95,7 @@ export default function PerformancePage() {
                       </dt>
                       <dd className="font-mono text-sm tabular-nums leading-none text-ink">
                         {pctOrDash(w.binary_accuracy)} win · {fixedOrDash(w.spread_mae, 1)} spread MAE
+                        {w.ats_accuracy != null ? ` · ${pctOrDash(w.ats_accuracy)} ATS` : ""}
                       </dd>
                     </div>
                   ))}

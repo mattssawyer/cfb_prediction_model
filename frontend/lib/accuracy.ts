@@ -11,6 +11,8 @@ export type AccuracySummary = {
   spread_mae: number | null;
   spread_rmse: number | null;
   spread_sign_accuracy: number | null;
+  ats_games_graded?: number;
+  ats_accuracy?: number | null;
 };
 
 export type WeekAccuracy = AccuracySummary & { week: number };

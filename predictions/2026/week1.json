@@ -37,7 +37,9 @@
       "actual_winner": "North Carolina",
       "actual_margin": -5.0,
       "correct": false,
-      "spread_error": 14.2
+      "spread_error": 14.2,
+      "vegas_spread": -7.5,
+      "ats_correct": false
     },
     {
       "id": 401864494,
@@ -58,7 +60,9 @@
       "actual_winner": "USC",
       "actual_margin": 16.0,
       "correct": true,
-      "spread_error": 10.9
+      "spread_error": 10.9,
+      "vegas_spread": -37.5,
+      "ats_correct": true
     },
     {
       "id": 401858202,
@@ -79,7 +83,9 @@
       "actual_winner": "Virginia",
       "actual_margin": 26.0,
       "correct": false,
-      "spread_error": -24.5
+      "spread_error": -24.5,
+      "vegas_spread": -4.0,
+      "ats_correct": false
     },
     {
       "id": 401864577,
@@ -100,7 +106,9 @@
       "actual_winner": "North Dakota State",
       "actual_margin": 26.0,
       "correct": true,
-      "spread_error": -23.4
+      "spread_error": -23.4,
+      "vegas_spread": -6.5,
+      "ats_correct": false
     },
     {
       "id": 401866408,
@@ -121,7 +129,9 @@
       "actual_winner": "Eastern Michigan",
       "actual_margin": 11.0,
       "correct": true,
-      "spread_error": -8.1
+      "spread_error": -8.1,
+      "vegas_spread": -9.5,
+      "ats_correct": false
     },
     {
       "id": 401864570,
@@ -142,7 +152,9 @@
       "actual_winner": "Florida State",
       "actual_margin": 17.0,
       "correct": true,
-      "spread_error": 10.7
+      "spread_error": 10.7,
+      "vegas_spread": -30.5,
+      "ats_correct": true
     },
     {
       "id": 401858201,
@@ -163,7 +175,9 @@
       "actual_winner": "Stanford",
       "actual_margin": 10.0,
       "correct": false,
-      "spread_error": -6.8
+      "spread_error": -6.8,
+      "vegas_spread": -4.5,
+      "ats_correct": false
     },
     {
       "id": 401862693,
@@ -184,7 +198,9 @@
       "actual_winner": "Memphis",
       "actual_margin": -6.0,
       "correct": false,
-      "spread_error": 14.4
+      "spread_error": 14.4,
+      "vegas_spread": -4.0,
+      "ats_correct": false
     },
     {
       "id": 401858423,
@@ -200,12 +216,14 @@
       "predicted_winner": "Rutgers",
       "confidence": 0.9201,
       "predicted_margin": 30.5,
-      "actual_home_score": null,
-      "actual_away_score": null,
-      "actual_winner": null,
-      "actual_margin": null,
-      "correct": null,
-      "spread_error": null
+      "actual_home_score": 21,
+      "actual_away_score": 37,
+      "actual_winner": "Massachusetts",
+      "actual_margin": -16.0,
+      "correct": false,
+      "spread_error": 46.5,
+      "vegas_spread": -29.0,
+      "ats_correct": false
     },
     {
       "id": 401858204,
@@ -221,12 +239,14 @@
       "predicted_winner": "Wake Forest",
       "confidence": 0.8523,
       "predicted_margin": 20.2,
-      "actual_home_score": null,
-      "actual_away_score": null,
-      "actual_winner": null,
-      "actual_margin": null,
-      "correct": null,
-      "spread_error": null
+      "actual_home_score": 38,
+      "actual_away_score": 16,
+      "actual_winner": "Wake Forest",
+      "actual_margin": 22.0,
+      "correct": true,
+      "spread_error": -1.8,
+      "vegas_spread": -27.5,
+      "ats_correct": true
     },
     {
       "id": 401856776,
@@ -242,12 +262,14 @@
       "predicted_winner": "Georgia Tech",
       "confidence": 0.6038,
       "predicted_margin": 6.5,
-      "actual_home_score": null,
-      "actual_away_score": null,
-      "actual_winner": null,
-      "actual_margin": null,
-      "correct": null,
-      "spread_error": null
+      "actual_home_score": 13,
+      "actual_away_score": 14,
+      "actual_winner": "Colorado",
+      "actual_margin": -1.0,
+      "correct": false,
+      "spread_error": 7.5,
+      "vegas_spread": -6.5,
+      "ats_correct": null
     },
     {
       "id": 401858424,
@@ -263,12 +285,14 @@
       "predicted_winner": "Illinois",
       "confidence": 0.6449,
       "predicted_margin": 4.4,
-      "actual_home_score": null,
-      "actual_away_score": null,
-      "actual_winner": null,
-      "actual_margin": null,
-      "correct": null,
-      "spread_error": null
+      "actual_home_score": 42,
+      "actual_away_score": 23,
+      "actual_winner": "Illinois",
+      "actual_margin": 19.0,
+      "correct": true,
+      "spread_error": -14.6,
+      "vegas_spread": -26.5,
+      "ats_correct": true
     },
     {
       "id": 401864495,
@@ -289,7 +313,9 @@
       "actual_winner": null,
       "actual_margin": null,
       "correct": null,
-      "spread_error": null
+      "spread_error": null,
+      "vegas_spread": -2.5,
+      "ats_correct": null
     },
     {
       "id": 401858429,
@@ -310,7 +336,9 @@
       "actual_winner": null,
       "actual_margin": null,
       "correct": null,
-      "spread_error": null
+      "spread_error": null,
+      "vegas_spread": -10.5,
+      "ats_correct": null
     },
     {
       "id": 401856664,
@@ -331,7 +359,9 @@
       "actual_winner": null,
       "actual_margin": null,
       "correct": null,
-      "spread_error": null
+      "spread_error": null,
+      "vegas_spread": -41.5,
+      "ats_correct": null
     },
     {
       "id": 401858429,
@@ -352,7 +382,9 @@
       "actual_winner": null,
       "actual_margin": null,
       "correct": null,
-      "spread_error": null
+      "spread_error": null,
+      "vegas_spread": -10.5,
+      "ats_correct": null
     },
     {
       "id": 401858436,
@@ -373,7 +405,9 @@
       "actual_winner": null,
       "actual_margin": null,
       "correct": null,
-      "spread_error": null
+      "spread_error": null,
+      "vegas_spread": -22.5,
+      "ats_correct": null
     },
     {
       "id": 401858430,
@@ -394,7 +428,9 @@
       "actual_winner": null,
       "actual_margin": null,
       "correct": null,
-      "spread_error": null
+      "spread_error": null,
+      "vegas_spread": -23.5,
+      "ats_correct": null
     },
     {
       "id": 401858425,
@@ -415,7 +451,9 @@
       "actual_winner": null,
       "actual_margin": null,
       "correct": null,
-      "spread_error": null
+      "spread_error": null,
+      "vegas_spread": -40.5,
+      "ats_correct": null
     },
     {
       "id": 401856780,
@@ -436,7 +474,9 @@
       "actual_winner": null,
       "actual_margin": null,
       "correct": null,
-      "spread_error": null
+      "spread_error": null,
+      "vegas_spread": -21.0,
+      "ats_correct": null
     },
     {
       "id": 401869960,
@@ -457,7 +497,9 @@
       "actual_winner": null,
       "actual_margin": null,
       "correct": null,
-      "spread_error": null
+      "spread_error": null,
+      "vegas_spread": -6.0,
+      "ats_correct": null
     },
     {
       "id": 401856778,
@@ -478,7 +520,9 @@
       "actual_winner": null,
       "actual_margin": null,
       "correct": null,
-      "spread_error": null
+      "spread_error": null,
+      "vegas_spread": -21.0,
+      "ats_correct": null
     },
     {
       "id": 401856634,
@@ -499,7 +543,9 @@
       "actual_winner": null,
       "actual_margin": null,
       "correct": null,
-      "spread_error": null
+      "spread_error": null,
+      "vegas_spread": -28.0,
+      "ats_correct": null
     },
     {
       "id": 401856778,
@@ -520,7 +566,9 @@
       "actual_winner": null,
       "actual_margin": null,
       "correct": null,
-      "spread_error": null
+      "spread_error": null,
+      "vegas_spread": -21.0,
+      "ats_correct": null
     },
     {
       "id": 401858432,
@@ -541,7 +589,9 @@
       "actual_winner": null,
       "actual_margin": null,
       "correct": null,
-      "spread_error": null
+      "spread_error": null,
+      "vegas_spread": -51.0,
+      "ats_correct": null
     },
     {
       "id": 401856665,
@@ -562,7 +612,9 @@
       "actual_winner": null,
       "actual_margin": null,
       "correct": null,
-      "spread_error": null
+      "spread_error": null,
+      "vegas_spread": -36.5,
+      "ats_correct": null
     },
     {
       "id": 401858434,
@@ -583,7 +635,9 @@
       "actual_winner": null,
       "actual_margin": null,
       "correct": null,
-      "spread_error": null
+      "spread_error": null,
+      "vegas_spread": -23.5,
+      "ats_correct": null
     },
     {
       "id": 401856777,
@@ -604,7 +658,9 @@
       "actual_winner": null,
       "actual_margin": null,
       "correct": null,
-      "spread_error": null
+      "spread_error": null,
+      "vegas_spread": -7.5,
+      "ats_correct": null
     },
     {
       "id": 401858433,
@@ -625,7 +681,9 @@
       "actual_winner": null,
       "actual_margin": null,
       "correct": null,
-      "spread_error": null
+      "spread_error": null,
+      "vegas_spread": -24.5,
+      "ats_correct": null
     },
     {
       "id": 401856667,
@@ -646,7 +704,9 @@
       "actual_winner": null,
       "actual_margin": null,
       "correct": null,
-      "spread_error": null
+      "spread_error": null,
+      "vegas_spread": -29.5,
+      "ats_correct": null
     },
     {
       "id": 401858434,
@@ -667,7 +727,9 @@
       "actual_winner": null,
       "actual_margin": null,
       "correct": null,
-      "spread_error": null
+      "spread_error": null,
+      "vegas_spread": -23.5,
+      "ats_correct": null
     },
     {
       "id": 401856636,
@@ -688,7 +750,9 @@
       "actual_winner": null,
       "actual_margin": null,
       "correct": null,
-      "spread_error": null
+      "spread_error": null,
+      "vegas_spread": -7.5,
+      "ats_correct": null
     },
     {
       "id": 401856772,
@@ -709,7 +773,9 @@
       "actual_winner": null,
       "actual_margin": null,
       "correct": null,
-      "spread_error": null
+      "spread_error": null,
+      "vegas_spread": 13.5,
+      "ats_correct": null
     },
     {
       "id": 401858426,
@@ -730,7 +796,9 @@
       "actual_winner": null,
       "actual_margin": null,
       "correct": null,
-      "spread_error": null
+      "spread_error": null,
+      "vegas_spread": -32.0,
+      "ats_correct": null
     },
     {
       "id": 401860878,
@@ -751,7 +819,9 @@
       "actual_winner": null,
       "actual_margin": null,
       "correct": null,
-      "spread_error": null
+      "spread_error": null,
+      "vegas_spread": -3.0,
+      "ats_correct": null
     },
     {
       "id": 401870763,
@@ -772,7 +842,9 @@
       "actual_winner": null,
       "actual_margin": null,
       "correct": null,
-      "spread_error": null
+      "spread_error": null,
+      "vegas_spread": -17.0,
+      "ats_correct": null
     },
     {
       "id": 401862695,
@@ -793,7 +865,9 @@
       "actual_winner": null,
       "actual_margin": null,
       "correct": null,
-      "spread_error": null
+      "spread_error": null,
+      "vegas_spread": -10.5,
+      "ats_correct": null
     },
     {
       "id": 401862699,
@@ -814,7 +888,9 @@
       "actual_winner": null,
       "actual_margin": null,
       "correct": null,
-      "spread_error": null
+      "spread_error": null,
+      "vegas_spread": -14.5,
+      "ats_correct": null
     },
     {
       "id": 401856668,
@@ -835,7 +911,9 @@
       "actual_winner": null,
       "actual_margin": null,
       "correct": null,
-      "spread_error": null
+      "spread_error": null,
+      "vegas_spread": -40.5,
+      "ats_correct": null
     },
     {
       "id": 401856662,
@@ -856,7 +934,9 @@
       "actual_winner": null,
       "actual_margin": null,
       "correct": null,
-      "spread_error": null
+      "spread_error": null,
+      "vegas_spread": -28.5,
+      "ats_correct": null
     },
     {
       "id": 401856660,
@@ -877,7 +957,9 @@
       "actual_winner": null,
       "actual_margin": null,
       "correct": null,
-      "spread_error": null
+      "spread_error": null,
+      "vegas_spread": -10.0,
+      "ats_correct": null
     },
     {
       "id": 401858428,
@@ -898,7 +980,9 @@
       "actual_winner": null,
       "actual_margin": null,
       "correct": null,
-      "spread_error": null
+      "spread_error": null,
+      "vegas_spread": -27.5,
+      "ats_correct": null
     },
     {
       "id": 401856637,
@@ -919,7 +1003,9 @@
       "actual_winner": null,
       "actual_margin": null,
       "correct": null,
-      "spread_error": null
+      "spread_error": null,
+      "vegas_spread": -26.5,
+      "ats_correct": null
     },
     {
       "id": 401864498,
@@ -940,7 +1026,9 @@
       "actual_winner": null,
       "actual_margin": null,
       "correct": null,
-      "spread_error": null
+      "spread_error": null,
+      "vegas_spread": -10.0,
+      "ats_correct": null
     },
     {
       "id": 401864497,
@@ -961,7 +1049,9 @@
       "actual_winner": null,
       "actual_margin": null,
       "correct": null,
-      "spread_error": null
+      "spread_error": null,
+      "vegas_spread": 3.0,
+      "ats_correct": null
     }
   ]
 }

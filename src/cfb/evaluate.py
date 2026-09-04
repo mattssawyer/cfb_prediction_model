@@ -22,7 +22,7 @@ from pathlib import Path
 import pandas as pd
 
 from .config import ACCURACY_PATH, PREDICTIONS_DIR
-from .data import CFBDataLoader
+from .data import CFBDataLoader, _extract_spread_from_lines
 
 _WEEK_FILE_RE = re.compile(r"^week(\d+)\.json$")
 
@@ -33,6 +33,7 @@ _GRADED_FIELDS = (
     "actual_margin",
     "correct",
     "spread_error",
+    "ats_correct",
 )
 
 _UNGRADED = {field: None for field in _GRADED_FIELDS}
@@ -58,12 +59,13 @@ def grade_all(loader: CFBDataLoader | None = None) -> dict:
         season = int(season_dir.name)
 
         results = _results_by_id(loader.load_games(season, refresh=True))
+        vegas = _vegas_by_id(loader.load_betting_lines(season, refresh=True))
 
         all_graded: list[dict] = []
         week_summaries: list[dict] = []
         for week_path in sorted(season_dir.glob("week*.json"), key=_week_number):
             graded_games, week_num = _grade_week_file(
-                week_path, results, latest_path, latest_key
+                week_path, results, latest_path, latest_key, vegas
             )
             if not graded_games:
                 continue
@@ -94,6 +96,7 @@ def _grade_week_file(
     results: dict[int, dict],
     latest_path: Path,
     latest_key: tuple[int, int] | None,
+    vegas: dict[int, float] | None = None,
 ) -> tuple[list[dict], int]:
     with open(week_path) as fh:
         payload = json.load(fh)
@@ -102,10 +105,15 @@ def _grade_week_file(
     week_num = payload.get("week")
     changed = False
     graded_games: list[dict] = []
+    vegas = vegas or {}
 
     for game in payload.get("games", []):
+        gid = game.get("id")
+        if game.get("vegas_spread") is None and gid in vegas:
+            game["vegas_spread"] = vegas[gid]
+            changed = True
         before = {field: game.get(field) for field in _GRADED_FIELDS}
-        result = results.get(game.get("id"))
+        result = results.get(gid)
         after = _grade_game(game, result)
         if after != before:
             changed = True
@@ -152,6 +160,7 @@ def _grade_game(game: dict, result: dict | None) -> dict:
         "actual_margin": round(float(actual_margin), 1),
         "correct": correct,
         "spread_error": spread_error,
+        "ats_correct": _ats_correct(predicted_margin, game.get("vegas_spread"), actual_margin),
     }
 
 
@@ -181,6 +190,8 @@ def _summarize(graded_games: list[dict]) -> dict:
         if sign_rows
         else None
     )
+    ats_rows = [g for g in graded_games if g.get("ats_correct") is not None]
+    ats_accuracy = _mean(g["ats_correct"] for g in ats_rows) if ats_rows else None
 
     return {
         "games_graded": len(graded_games),
@@ -190,7 +201,30 @@ def _summarize(graded_games: list[dict]) -> dict:
         "spread_mae": _round(spread_mae, 2),
         "spread_rmse": _round(spread_rmse, 2),
         "spread_sign_accuracy": _round(spread_sign_accuracy, 4),
+        "ats_games_graded": len(ats_rows),
+        "ats_accuracy": _round(ats_accuracy, 4),
     }
+
+
+def _ats_correct(
+    predicted_margin: float | None,
+    vegas_spread: float | None,
+    actual_margin: float,
+) -> bool | None:
+    """Did the model pick the covering side of the Vegas home line?
+
+    ``vegas_spread`` is the home team's number (negative = home favorite).
+    Home covers when ``actual_margin + vegas_spread > 0``; the model takes
+    that side when ``predicted_margin + vegas_spread > 0``. Pushes and
+    picks that sit on the number are left ungraded.
+    """
+    if predicted_margin is None or vegas_spread is None:
+        return None
+    model_edge = predicted_margin + vegas_spread
+    actual_edge = actual_margin + vegas_spread
+    if model_edge == 0 or actual_edge == 0:
+        return None
+    return (model_edge > 0) == (actual_edge > 0)
 
 
 def _mean(values) -> float:
@@ -205,6 +239,25 @@ def _round(value: float | None, ndigits: int) -> float | None:
 # =============================================================================
 # CFBD results lookup
 # =============================================================================
+def _vegas_by_id(betting_df: pd.DataFrame) -> dict[int, float]:
+    """Map CFBD game id → home-team Vegas line."""
+    out: dict[int, float] = {}
+    if betting_df.empty or "id" not in betting_df.columns:
+        return out
+    for _, row in betting_df.iterrows():
+        gid = row.get("id")
+        if gid is None or (isinstance(gid, float) and math.isnan(gid)):
+            continue
+        spread = _extract_spread_from_lines(row.get("lines"))
+        if spread is None:
+            continue
+        try:
+            out[int(gid)] = float(spread)
+        except (TypeError, ValueError):
+            continue
+    return out
+
+
 def _results_by_id(games_df: pd.DataFrame) -> dict[int, dict]:
     out: dict[int, dict] = {}
     for _, row in games_df.iterrows():

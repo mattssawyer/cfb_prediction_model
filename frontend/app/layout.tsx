@@ -46,7 +46,7 @@ export default function RootLayout({
           {children}
         </div>
         <footer className="mx-auto w-full max-w-5xl px-4 pb-10 font-mono text-[11px] uppercase tracking-wide text-ink-muted sm:px-6">
-          Data via <Link href="https://collegefootballdata.com" className="text-accent hover:text-accent-dark">collegefootballdata.com</Link>
+          Made by <Link href="https://github.com/mattssawyer" className="text-accent hover:text-accent-dark">Matthew Sawyer</Link>. Data via <Link href="https://collegefootballdata.com" className="text-accent hover:text-accent-dark">collegefootballdata.com</Link>
         </footer>
       </body>
     </html>

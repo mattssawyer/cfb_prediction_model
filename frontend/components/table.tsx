@@ -80,19 +80,29 @@ export default function Table({ data }: { data: Game[] }) {
                 <div className="min-w-0 text-right text-[13px] font-semibold uppercase leading-tight tracking-tight text-ink sm:text-base sm:leading-none">
                   {game.away_team}
                 </div>
-                {game.predicted_margin != null ? (
-                  <span
-                    className={`shrink-0 font-mono text-sm font-semibold tabular-nums leading-none sm:text-lg ${
-                      game.predicted_margin > 0
-                        ? "text-spread-plus"
-                        : game.predicted_margin < 0
-                          ? "text-spread-minus"
-                          : "text-ink-muted"
-                    }`}
-                  >
-                    {formatAwaySpread(game.predicted_margin)}
-                  </span>
-                ) : null}
+                <div className="flex shrink-0 flex-col items-end leading-none">
+                  {game.predicted_margin != null ? (
+                    <span
+                      className={`font-mono text-sm font-semibold tabular-nums sm:text-lg ${
+                        game.predicted_margin > 0
+                          ? "text-spread-plus"
+                          : game.predicted_margin < 0
+                            ? "text-spread-minus"
+                            : "text-ink-muted"
+                      }`}
+                    >
+                      {formatAwaySpread(game.predicted_margin)}
+                    </span>
+                  ) : null}
+                  {game.vegas_spread != null ? (
+                    <span
+                      title="Vegas (away)"
+                      className="mt-0.5 font-mono text-[10px] tabular-nums text-ink-muted"
+                    >
+                      {formatAwaySpread(-game.vegas_spread)} vg
+                    </span>
+                  ) : null}
+                </div>
               </div>
               <div
                 className={`font-mono text-[10px] uppercase tracking-wide text-ink-muted ${game.away_conference ? "" : "invisible"}`}
@@ -127,11 +137,17 @@ export default function Table({ data }: { data: Game[] }) {
                   {game.correct ? "✓ correct" : "✗ missed"} · final {game.away_team}{" "}
                   {game.actual_away_score}–{game.actual_home_score} {game.home_team}
                 </span>
-                {game.spread_error != null ? (
-                  <span className="text-ink-muted">
-                    spread miss {Math.abs(Math.round(game.spread_error * 10) / 10).toFixed(1)} pts
-                  </span>
-                ) : null}
+                <span className="text-ink-muted">
+                  {game.spread_error != null
+                    ? `spread miss ${Math.abs(Math.round(game.spread_error * 10) / 10).toFixed(1)} pts`
+                    : null}
+                  {game.ats_correct != null ? (
+                    <span className={game.ats_correct ? "text-spread-minus" : "text-spread-plus"}>
+                      {game.spread_error != null ? " · " : ""}
+                      {game.ats_correct ? "ATS hit" : "ATS miss"}
+                    </span>
+                  ) : null}
+                </span>
               </div>
             ) : null}
           </div>

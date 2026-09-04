@@ -17,12 +17,14 @@ export type Game = {
   predicted_winner: string;
   confidence: number;
   predicted_margin: number | null;
+  vegas_spread?: number | null;
   actual_home_score: number | null;
   actual_away_score: number | null;
   actual_winner: string | null;
   actual_margin: number | null;
   correct: boolean | null;
   spread_error: number | null;
+  ats_correct?: boolean | null;
 };
 
 export type ModelMeta = {

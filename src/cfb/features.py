@@ -421,6 +421,13 @@ def build_week_features(
     week_games["season"] = season
 
     ml_df = loader.create_ml_features_dataset(games_df=week_games)
+    if "spread_line" in ml_df.columns and "id" in ml_df.columns:
+        spread_by_id = {
+            int(gid): line
+            for gid, line in zip(ml_df["id"], ml_df["spread_line"])
+            if pd.notna(gid)
+        }
+        week_games["spread_line"] = week_games["id"].map(spread_by_id)
     transformed = transform_for_lightgbm(ml_df)
 
     X = _align_to_schema(transformed, schema)

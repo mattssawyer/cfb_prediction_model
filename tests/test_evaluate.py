@@ -1,6 +1,6 @@
 import json
 
-from cfb.evaluate import _grade_game, _grade_week_file, _results_by_id, _summarize
+from cfb.evaluate import _grade_game, _grade_week_file, _results_by_id, _summarize, _ats_correct
 import pandas as pd
 
 
@@ -12,6 +12,7 @@ def _game(**overrides):
         "home_win_probability": 0.7,
         "predicted_winner": "Home U",
         "predicted_margin": 10.0,
+        "vegas_spread": -7.0,
     }
     base.update(overrides)
     return base
@@ -26,6 +27,7 @@ def test_grade_game_ungraded_when_not_completed():
         "actual_margin": None,
         "correct": None,
         "spread_error": None,
+        "ats_correct": None,
     }
 
 
@@ -40,6 +42,8 @@ def test_grade_game_home_win_correct_call():
     assert graded["actual_margin"] == 14.0
     assert graded["correct"] is True
     assert graded["spread_error"] == -4.0  # predicted 10, actual 14
+    # Vegas home -7; model 10 and actual 14 both cover → ATS hit
+    assert graded["ats_correct"] is True
 
 
 def test_grade_game_away_win_wrong_call():
@@ -49,6 +53,8 @@ def test_grade_game_away_win_wrong_call():
     assert graded["actual_margin"] == -14.0
     assert graded["correct"] is False
     assert graded["spread_error"] == 24.0  # predicted 10, actual -14
+    # Vegas home -7; model 10 covers, actual -14 does not → ATS miss
+    assert graded["ats_correct"] is False
 
 
 def test_grade_game_no_predicted_margin_leaves_spread_error_none():
@@ -56,6 +62,20 @@ def test_grade_game_no_predicted_margin_leaves_spread_error_none():
     graded = _grade_game(_game(predicted_margin=None), result)
     assert graded["correct"] is True
     assert graded["spread_error"] is None
+    assert graded["ats_correct"] is None
+
+
+def test_grade_game_ats_push_is_ungraded():
+    result = {"completed": True, "home_points": 24.0, "away_points": 17.0}
+    graded = _grade_game(_game(predicted_margin=10.0, vegas_spread=-7.0), result)
+    assert graded["actual_margin"] == 7.0
+    assert graded["ats_correct"] is None
+
+
+def test_grade_game_ats_model_on_the_number_is_ungraded():
+    result = {"completed": True, "home_points": 28.0, "away_points": 14.0}
+    graded = _grade_game(_game(predicted_margin=7.0, vegas_spread=-7.0), result)
+    assert graded["ats_correct"] is None
 
 
 def test_results_by_id_treats_missing_scores_as_ungraded():
@@ -73,9 +93,21 @@ def test_results_by_id_treats_missing_scores_as_ungraded():
 def test_summarize_aggregates_binary_and_spread_metrics():
     graded_games = [
         _game(id=1, home_win_probability=0.7, predicted_margin=10.0)
-        | {"actual_winner": "Home U", "actual_margin": 10.0, "correct": True, "spread_error": 0.0},
+        | {
+            "actual_winner": "Home U",
+            "actual_margin": 10.0,
+            "correct": True,
+            "spread_error": 0.0,
+            "ats_correct": True,
+        },
         _game(id=2, home_win_probability=0.4, predicted_margin=-3.0)
-        | {"actual_winner": "Home U", "actual_margin": 6.0, "correct": False, "spread_error": -9.0},
+        | {
+            "actual_winner": "Home U",
+            "actual_margin": 6.0,
+            "correct": False,
+            "spread_error": -9.0,
+            "ats_correct": False,
+        },
     ]
     summary = _summarize(graded_games)
     assert summary["games_graded"] == 2
@@ -84,6 +116,8 @@ def test_summarize_aggregates_binary_and_spread_metrics():
     assert summary["spread_mae"] == 4.5
     # game 2 predicted a home loss (-3) but home actually won (+6): sign miss
     assert summary["spread_sign_accuracy"] == 0.5
+    assert summary["ats_games_graded"] == 2
+    assert summary["ats_accuracy"] == 0.5
 
 
 def test_grade_week_file_partial_week_leaves_unplayed_games_ungraded(tmp_path):
@@ -119,6 +153,26 @@ def test_grade_week_file_updates_latest_when_it_matches(tmp_path):
 
     latest_payload = json.loads(latest_path.read_text())
     assert latest_payload["games"][0]["correct"] is True
+
+
+def test_ats_correct_picks_home_cover():
+    assert _ats_correct(10.0, -7.0, 14.0) is True
+    assert _ats_correct(3.0, -7.0, 14.0) is False
+
+
+def test_grade_week_file_backfills_missing_vegas_spread(tmp_path):
+    week_path = tmp_path / "week1.json"
+    payload = {
+        "season": 2026,
+        "week": 1,
+        "games": [_game(id=1, vegas_spread=None)],
+    }
+    week_path.write_text(json.dumps(payload))
+    results = {1: {"completed": True, "home_points": 28.0, "away_points": 14.0}}
+    _grade_week_file(week_path, results, tmp_path / "latest.json", None, vegas={1: -7.0})
+    on_disk = json.loads(week_path.read_text())
+    assert on_disk["games"][0]["vegas_spread"] == -7.0
+    assert on_disk["games"][0]["ats_correct"] is True
 
 
 def test_grade_week_file_does_not_touch_latest_for_other_weeks(tmp_path):

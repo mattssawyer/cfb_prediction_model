@@ -543,6 +543,8 @@ def predict_week(
             "predicted_margin": (
                 round(float(margins[i]), 1) if margins is not None else None
             ),
+            # CFBD home-team line: negative = home favorite. Same convention as Vegas.
+            "vegas_spread": _optional_float(game.get("spread_line")),
         })
 
     games.sort(key=lambda g: (g["kickoff"] or "", -g["confidence"]))
@@ -632,9 +634,12 @@ def _optional_int(value) -> int | None:
 
 
 def _optional_float(value) -> float | None:
-    if value is None:
+    if value is None or (isinstance(value, float) and np.isnan(value)):
         return None
     try:
-        return float(value)
+        n = float(value)
     except (TypeError, ValueError):
         return None
+    if np.isnan(n):
+        return None
+    return n
