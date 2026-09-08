@@ -545,6 +545,13 @@ def predict_week(
             ),
             # CFBD home-team line: negative = home favorite. Same convention as Vegas.
             "vegas_spread": _optional_float(game.get("spread_line")),
+            "actual_home_score": None,
+            "actual_away_score": None,
+            "actual_winner": None,
+            "actual_margin": None,
+            "correct": None,
+            "spread_error": None,
+            "ats_correct": None,
         })
 
     games.sort(key=lambda g: (g["kickoff"] or "", -g["confidence"]))

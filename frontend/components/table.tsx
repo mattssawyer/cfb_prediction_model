@@ -131,7 +131,7 @@ export default function Table({ data }: { data: Game[] }) {
               </div>
             </div>
 
-            {game.correct !== null ? (
+            {game.correct != null ? (
               <div className="col-span-3 flex flex-wrap items-center justify-between gap-x-3 gap-y-1 border-t border-dotted border-hairline pt-1.5 font-mono text-[10px] uppercase tracking-wide sm:col-span-4">
                 <span className={game.correct ? "text-spread-minus" : "text-spread-plus"}>
                   {game.correct ? "✓ correct" : "✗ missed"} · final {game.away_team}{" "}
