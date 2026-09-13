@@ -32,7 +32,14 @@
       "predicted_winner": "Rutgers",
       "confidence": 0.5068,
       "predicted_margin": -0.8,
-      "vegas_spread": -3.0
+      "vegas_spread": -3.0,
+      "actual_home_score": 28,
+      "actual_away_score": 21,
+      "actual_winner": "Boston College",
+      "actual_margin": 7.0,
+      "correct": false,
+      "spread_error": -7.8,
+      "ats_correct": false
     },
     {
       "id": 401856678,
@@ -48,7 +55,14 @@
       "predicted_winner": "Missouri",
       "confidence": 0.6713,
       "predicted_margin": -4.2,
-      "vegas_spread": 5.5
+      "vegas_spread": 5.5,
+      "actual_home_score": 21,
+      "actual_away_score": 38,
+      "actual_winner": "Missouri",
+      "actual_margin": -17.0,
+      "correct": true,
+      "spread_error": 12.8,
+      "ats_correct": false
     },
     {
       "id": 401856782,
@@ -64,7 +78,14 @@
       "predicted_winner": "Oregon",
       "confidence": 0.9246,
       "predicted_margin": -21.6,
-      "vegas_spread": 22.5
+      "vegas_spread": 22.5,
+      "actual_home_score": 39,
+      "actual_away_score": 31,
+      "actual_winner": "Oklahoma State",
+      "actual_margin": 8.0,
+      "correct": false,
+      "spread_error": -29.6,
+      "ats_correct": true
     },
     {
       "id": 401856683,
@@ -80,7 +101,14 @@
       "predicted_winner": "Texas A&M",
       "confidence": 0.8164,
       "predicted_margin": 17.3,
-      "vegas_spread": -14.5
+      "vegas_spread": -14.5,
+      "actual_home_score": 48,
+      "actual_away_score": 20,
+      "actual_winner": "Texas A&M",
+      "actual_margin": 28.0,
+      "correct": true,
+      "spread_error": -10.7,
+      "ats_correct": true
     },
     {
       "id": 401858221,
@@ -96,7 +124,14 @@
       "predicted_winner": "Virginia Tech",
       "confidence": 0.79,
       "predicted_margin": 17.8,
-      "vegas_spread": -18.5
+      "vegas_spread": -18.5,
+      "actual_home_score": 44,
+      "actual_away_score": 21,
+      "actual_winner": "Virginia Tech",
+      "actual_margin": 23.0,
+      "correct": true,
+      "spread_error": -5.2,
+      "ats_correct": false
     },
     {
       "id": 401858442,
@@ -112,7 +147,14 @@
       "predicted_winner": "Penn State",
       "confidence": 0.7849,
       "predicted_margin": -16.2,
-      "vegas_spread": 23.5
+      "vegas_spread": 23.5,
+      "actual_home_score": 9,
+      "actual_away_score": 27,
+      "actual_winner": "Penn State",
+      "actual_margin": -18.0,
+      "correct": true,
+      "spread_error": 1.8,
+      "ats_correct": true
     },
     {
       "id": 401856781,
@@ -128,7 +170,14 @@
       "predicted_winner": "Kansas State",
       "confidence": 0.649,
       "predicted_margin": 4.4,
-      "vegas_spread": -18.5
+      "vegas_spread": -18.5,
+      "actual_home_score": 34,
+      "actual_away_score": 7,
+      "actual_winner": "Kansas State",
+      "actual_margin": 27.0,
+      "correct": true,
+      "spread_error": -22.6,
+      "ats_correct": false
     },
     {
       "id": 401856679,
@@ -144,7 +193,14 @@
       "predicted_winner": "Michigan",
       "confidence": 0.5366,
       "predicted_margin": -0.3,
-      "vegas_spread": 5.5
+      "vegas_spread": 5.5,
+      "actual_home_score": 17,
+      "actual_away_score": 10,
+      "actual_winner": "Michigan",
+      "actual_margin": 7.0,
+      "correct": true,
+      "spread_error": -7.3,
+      "ats_correct": true
     },
     {
       "id": 401864571,
@@ -160,7 +216,14 @@
       "predicted_winner": "App State",
       "confidence": 0.5366,
       "predicted_margin": -1.2,
-      "vegas_spread": -7.5
+      "vegas_spread": -7.5,
+      "actual_home_score": 24,
+      "actual_away_score": 27,
+      "actual_winner": "App State",
+      "actual_margin": -3.0,
+      "correct": true,
+      "spread_error": 1.8,
+      "ats_correct": true
     },
     {
       "id": 401862702,
@@ -176,7 +239,14 @@
       "predicted_winner": "Army",
       "confidence": 0.5115,
       "predicted_margin": 1.2,
-      "vegas_spread": -3.5
+      "vegas_spread": -3.5,
+      "actual_home_score": 24,
+      "actual_away_score": 28,
+      "actual_winner": "South Florida",
+      "actual_margin": -4.0,
+      "correct": false,
+      "spread_error": 5.2,
+      "ats_correct": true
     },
     {
       "id": 401858224,
@@ -192,7 +262,14 @@
       "predicted_winner": "Purdue",
       "confidence": 0.5088,
       "predicted_margin": -0.4,
-      "vegas_spread": 4.0
+      "vegas_spread": 4.0,
+      "actual_home_score": 36,
+      "actual_away_score": 38,
+      "actual_winner": "Wake Forest",
+      "actual_margin": -2.0,
+      "correct": false,
+      "spread_error": 1.6,
+      "ats_correct": true
     },
     {
       "id": 401856673,
@@ -208,7 +285,14 @@
       "predicted_winner": "Georgia",
       "confidence": 0.9667,
       "predicted_margin": 33.5,
-      "vegas_spread": -40.5
+      "vegas_spread": -40.5,
+      "actual_home_score": 70,
+      "actual_away_score": 20,
+      "actual_winner": "Georgia",
+      "actual_margin": 50.0,
+      "correct": true,
+      "spread_error": -16.5,
+      "ats_correct": false
     },
     {
       "id": 401859184,
@@ -224,7 +308,14 @@
       "predicted_winner": "Notre Dame",
       "confidence": 0.9578,
       "predicted_margin": 29.7,
-      "vegas_spread": -44.5
+      "vegas_spread": -44.5,
+      "actual_home_score": 52,
+      "actual_away_score": 0,
+      "actual_winner": "Notre Dame",
+      "actual_margin": 52.0,
+      "correct": true,
+      "spread_error": -22.3,
+      "ats_correct": false
     },
     {
       "id": 401862708,
@@ -240,7 +331,14 @@
       "predicted_winner": "UAB",
       "confidence": 0.9291,
       "predicted_margin": 23.8,
-      "vegas_spread": -10.5
+      "vegas_spread": -10.5,
+      "actual_home_score": 26,
+      "actual_away_score": 20,
+      "actual_winner": "UAB",
+      "actual_margin": 6.0,
+      "correct": true,
+      "spread_error": 17.8,
+      "ats_correct": false
     },
     {
       "id": 401858446,
@@ -256,7 +354,14 @@
       "predicted_winner": "Washington",
       "confidence": 0.9029,
       "predicted_margin": 21.1,
-      "vegas_spread": -26.5
+      "vegas_spread": -26.5,
+      "actual_home_score": 16,
+      "actual_away_score": 14,
+      "actual_winner": "Washington",
+      "actual_margin": 2.0,
+      "correct": true,
+      "spread_error": 19.1,
+      "ats_correct": true
     },
     {
       "id": 401858440,
@@ -272,7 +377,14 @@
       "predicted_winner": "Michigan State",
       "confidence": 0.8043,
       "predicted_margin": 9.1,
-      "vegas_spread": -17.5
+      "vegas_spread": -17.5,
+      "actual_home_score": 35,
+      "actual_away_score": 7,
+      "actual_winner": "Michigan State",
+      "actual_margin": 28.0,
+      "correct": true,
+      "spread_error": -18.9,
+      "ats_correct": false
     },
     {
       "id": 401856674,
@@ -288,7 +400,14 @@
       "predicted_winner": "Alabama",
       "confidence": 0.7662,
       "predicted_margin": -9.9,
-      "vegas_spread": 10.5
+      "vegas_spread": 10.5,
+      "actual_home_score": 17,
+      "actual_away_score": 45,
+      "actual_winner": "Alabama",
+      "actual_margin": -28.0,
+      "correct": true,
+      "spread_error": 18.1,
+      "ats_correct": false
     },
     {
       "id": 401858217,
@@ -304,7 +423,14 @@
       "predicted_winner": "Illinois",
       "confidence": 0.7127,
       "predicted_margin": 5.7,
-      "vegas_spread": -6.0
+      "vegas_spread": -6.0,
+      "actual_home_score": 27,
+      "actual_away_score": 31,
+      "actual_winner": "Duke",
+      "actual_margin": -4.0,
+      "correct": false,
+      "spread_error": 9.7,
+      "ats_correct": true
     },
     {
       "id": 401856790,
@@ -320,7 +446,14 @@
       "predicted_winner": "Pittsburgh",
       "confidence": 0.5816,
       "predicted_margin": 4.5,
-      "vegas_spread": -7.0
+      "vegas_spread": -7.0,
+      "actual_home_score": 12,
+      "actual_away_score": 7,
+      "actual_winner": "Pittsburgh",
+      "actual_margin": 5.0,
+      "correct": true,
+      "spread_error": -0.5,
+      "ats_correct": true
     },
     {
       "id": 401856677,
@@ -336,7 +469,14 @@
       "predicted_winner": "Mississippi State",
       "confidence": 0.5706,
       "predicted_margin": 2.0,
-      "vegas_spread": 1.5
+      "vegas_spread": 1.5,
+      "actual_home_score": 13,
+      "actual_away_score": 38,
+      "actual_winner": "Mississippi State",
+      "actual_margin": -25.0,
+      "correct": true,
+      "spread_error": 27.0,
+      "ats_correct": false
     },
     {
       "id": 401856810,
@@ -352,7 +492,14 @@
       "predicted_winner": "BYU",
       "confidence": 0.5549,
       "predicted_margin": 2.8,
-      "vegas_spread": -7.5
+      "vegas_spread": -7.5,
+      "actual_home_score": 28,
+      "actual_away_score": 17,
+      "actual_winner": "BYU",
+      "actual_margin": 11.0,
+      "correct": true,
+      "spread_error": -8.2,
+      "ats_correct": false
     },
     {
       "id": 401858216,
@@ -368,7 +515,14 @@
       "predicted_winner": "Syracuse",
       "confidence": 0.549,
       "predicted_margin": -0.4,
-      "vegas_spread": -3.5
+      "vegas_spread": -3.5,
+      "actual_home_score": 18,
+      "actual_away_score": 21,
+      "actual_winner": "California",
+      "actual_margin": -3.0,
+      "correct": false,
+      "spread_error": 2.6,
+      "ats_correct": true
     },
     {
       "id": 401858444,
@@ -384,7 +538,14 @@
       "predicted_winner": "Maryland",
       "confidence": 0.5488,
       "predicted_margin": 1.2,
-      "vegas_spread": 12.5
+      "vegas_spread": 12.5,
+      "actual_home_score": 14,
+      "actual_away_score": 38,
+      "actual_winner": "Maryland",
+      "actual_margin": -24.0,
+      "correct": true,
+      "spread_error": 25.2,
+      "ats_correct": false
     },
     {
       "id": 401860884,
@@ -400,7 +561,14 @@
       "predicted_winner": "Texas State",
       "confidence": 0.5088,
       "predicted_margin": -0.3,
-      "vegas_spread": -1.5
+      "vegas_spread": -1.5,
+      "actual_home_score": 26,
+      "actual_away_score": 31,
+      "actual_winner": "UTSA",
+      "actual_margin": -5.0,
+      "correct": false,
+      "spread_error": 4.7,
+      "ats_correct": true
     },
     {
       "id": 401862705,
@@ -416,7 +584,14 @@
       "predicted_winner": "North Texas",
       "confidence": 0.6877,
       "predicted_margin": 8.3,
-      "vegas_spread": 3.5
+      "vegas_spread": 3.5,
+      "actual_home_score": 44,
+      "actual_away_score": 6,
+      "actual_winner": "North Texas",
+      "actual_margin": 38.0,
+      "correct": true,
+      "spread_error": -29.7,
+      "ats_correct": true
     },
     {
       "id": 401856684,
@@ -432,7 +607,14 @@
       "predicted_winner": "Vanderbilt",
       "confidence": 0.9107,
       "predicted_margin": 15.6,
-      "vegas_spread": -20.5
+      "vegas_spread": -20.5,
+      "actual_home_score": 35,
+      "actual_away_score": 26,
+      "actual_winner": "Vanderbilt",
+      "actual_margin": 9.0,
+      "correct": true,
+      "spread_error": 6.6,
+      "ats_correct": true
     },
     {
       "id": 401860881,
@@ -448,7 +630,14 @@
       "predicted_winner": "Boise State",
       "confidence": 0.72,
       "predicted_margin": 8.2,
-      "vegas_spread": -8.5
+      "vegas_spread": -8.5,
+      "actual_home_score": 38,
+      "actual_away_score": 20,
+      "actual_winner": "Boise State",
+      "actual_margin": 18.0,
+      "correct": true,
+      "spread_error": -9.8,
+      "ats_correct": false
     },
     {
       "id": 401866414,
@@ -464,7 +653,14 @@
       "predicted_winner": "Florida International",
       "confidence": 0.5638,
       "predicted_margin": 6.0,
-      "vegas_spread": -10.5
+      "vegas_spread": -10.5,
+      "actual_home_score": 33,
+      "actual_away_score": 20,
+      "actual_winner": "Florida International",
+      "actual_margin": 13.0,
+      "correct": true,
+      "spread_error": -7.0,
+      "ats_correct": false
     },
     {
       "id": 401866418,
@@ -480,7 +676,14 @@
       "predicted_winner": "Ohio",
       "confidence": 0.551,
       "predicted_margin": 2.4,
-      "vegas_spread": -3.0
+      "vegas_spread": -3.0,
+      "actual_home_score": 29,
+      "actual_away_score": 27,
+      "actual_winner": "Ohio",
+      "actual_margin": 2.0,
+      "correct": true,
+      "spread_error": 0.4,
+      "ats_correct": true
     },
     {
       "id": 401858441,
@@ -496,7 +699,14 @@
       "predicted_winner": "Nebraska",
       "confidence": 0.8433,
       "predicted_margin": 21.4,
-      "vegas_spread": -28.5
+      "vegas_spread": -28.5,
+      "actual_home_score": 56,
+      "actual_away_score": 7,
+      "actual_winner": "Nebraska",
+      "actual_margin": 49.0,
+      "correct": true,
+      "spread_error": -27.6,
+      "ats_correct": false
     },
     {
       "id": 401856681,
@@ -512,7 +722,14 @@
       "predicted_winner": "Tennessee",
       "confidence": 0.7801,
       "predicted_margin": -10.8,
-      "vegas_spread": 12.5
+      "vegas_spread": 12.5,
+      "actual_home_score": 24,
+      "actual_away_score": 45,
+      "actual_winner": "Tennessee",
+      "actual_margin": -21.0,
+      "correct": true,
+      "spread_error": 10.2,
+      "ats_correct": false
     },
     {
       "id": 401871045,
@@ -528,7 +745,14 @@
       "predicted_winner": "Marshall",
       "confidence": 0.7573,
       "predicted_margin": 10.4,
-      "vegas_spread": -14.0
+      "vegas_spread": -14.0,
+      "actual_home_score": 28,
+      "actual_away_score": 26,
+      "actual_winner": "Marshall",
+      "actual_margin": 2.0,
+      "correct": true,
+      "spread_error": 8.4,
+      "ats_correct": true
     },
     {
       "id": 401864575,
@@ -544,7 +768,14 @@
       "predicted_winner": "Tulane",
       "confidence": 0.6372,
       "predicted_margin": 5.8,
-      "vegas_spread": -9.5
+      "vegas_spread": -9.5,
+      "actual_home_score": 28,
+      "actual_away_score": 24,
+      "actual_winner": "Tulane",
+      "actual_margin": 4.0,
+      "correct": true,
+      "spread_error": 1.8,
+      "ats_correct": true
     },
     {
       "id": 401862707,
@@ -560,7 +791,14 @@
       "predicted_winner": "Tulsa",
       "confidence": 0.6142,
       "predicted_margin": -4.8,
-      "vegas_spread": 13.5
+      "vegas_spread": 13.5,
+      "actual_home_score": 17,
+      "actual_away_score": 23,
+      "actual_winner": "Tulsa",
+      "actual_margin": -6.0,
+      "correct": true,
+      "spread_error": 1.2,
+      "ats_correct": true
     },
     {
       "id": 401869955,
@@ -576,7 +814,14 @@
       "predicted_winner": "Kennesaw State",
       "confidence": 0.576,
       "predicted_margin": 6.1,
-      "vegas_spread": -9.5
+      "vegas_spread": -9.5,
+      "actual_home_score": 17,
+      "actual_away_score": 31,
+      "actual_winner": "Georgia State",
+      "actual_margin": -14.0,
+      "correct": false,
+      "spread_error": 20.1,
+      "ats_correct": true
     },
     {
       "id": 401858443,
@@ -592,7 +837,14 @@
       "predicted_winner": "UCLA",
       "confidence": 0.5321,
       "predicted_margin": 1.4,
-      "vegas_spread": -11.5
+      "vegas_spread": -11.5,
+      "actual_home_score": 28,
+      "actual_away_score": 10,
+      "actual_winner": "UCLA",
+      "actual_margin": 18.0,
+      "correct": true,
+      "spread_error": -16.6,
+      "ats_correct": false
     },
     {
       "id": 401856783,
@@ -608,7 +860,14 @@
       "predicted_winner": "Texas Tech",
       "confidence": 0.8943,
       "predicted_margin": -15.9,
-      "vegas_spread": 26.5
+      "vegas_spread": 26.5,
+      "actual_home_score": 24,
+      "actual_away_score": 35,
+      "actual_winner": "Texas Tech",
+      "actual_margin": -11.0,
+      "correct": true,
+      "spread_error": -4.9,
+      "ats_correct": true
     },
     {
       "id": 401867796,
@@ -624,7 +883,14 @@
       "predicted_winner": "LSU",
       "confidence": 0.8867,
       "predicted_margin": 20.9,
-      "vegas_spread": -35.5
+      "vegas_spread": -35.5,
+      "actual_home_score": 45,
+      "actual_away_score": 14,
+      "actual_winner": "LSU",
+      "actual_margin": 31.0,
+      "correct": true,
+      "spread_error": -10.1,
+      "ats_correct": true
     },
     {
       "id": 401856788,
@@ -640,7 +906,14 @@
       "predicted_winner": "Iowa",
       "confidence": 0.8421,
       "predicted_margin": 14.2,
-      "vegas_spread": -14.5
+      "vegas_spread": -14.5,
+      "actual_home_score": 16,
+      "actual_away_score": 13,
+      "actual_winner": "Iowa",
+      "actual_margin": 3.0,
+      "correct": true,
+      "spread_error": 11.2,
+      "ats_correct": true
     },
     {
       "id": 401858219,
@@ -656,7 +929,14 @@
       "predicted_winner": "Clemson",
       "confidence": 0.8346,
       "predicted_margin": 15.7,
-      "vegas_spread": -20.5
+      "vegas_spread": -20.5,
+      "actual_home_score": 22,
+      "actual_away_score": 7,
+      "actual_winner": "Clemson",
+      "actual_margin": 15.0,
+      "correct": true,
+      "spread_error": 0.7,
+      "ats_correct": true
     },
     {
       "id": 401862703,
@@ -672,7 +952,14 @@
       "predicted_winner": "Navy",
       "confidence": 0.636,
       "predicted_margin": -5.3,
-      "vegas_spread": 4.5
+      "vegas_spread": 4.5,
+      "actual_home_score": 38,
+      "actual_away_score": 30,
+      "actual_winner": "Florida Atlantic",
+      "actual_margin": 8.0,
+      "correct": false,
+      "spread_error": -13.3,
+      "ats_correct": false
     },
     {
       "id": 401856682,
@@ -688,7 +975,14 @@
       "predicted_winner": "Ohio State",
       "confidence": 0.5069,
       "predicted_margin": -0.1,
-      "vegas_spread": -1.5
+      "vegas_spread": -1.5,
+      "actual_home_score": 24,
+      "actual_away_score": 23,
+      "actual_winner": "Texas",
+      "actual_margin": 1.0,
+      "correct": false,
+      "spread_error": -1.1,
+      "ats_correct": true
     },
     {
       "id": 401856676,
@@ -704,7 +998,14 @@
       "predicted_winner": "Ole Miss",
       "confidence": 0.9558,
       "predicted_margin": 32.1,
-      "vegas_spread": -47.5
+      "vegas_spread": -47.5,
+      "actual_home_score": 41,
+      "actual_away_score": 9,
+      "actual_winner": "Ole Miss",
+      "actual_margin": 32.0,
+      "correct": true,
+      "spread_error": 0.1,
+      "ats_correct": true
     },
     {
       "id": 401856671,
@@ -720,7 +1021,14 @@
       "predicted_winner": "Auburn",
       "confidence": 0.7633,
       "predicted_margin": 9.9,
-      "vegas_spread": -33.5
+      "vegas_spread": -33.5,
+      "actual_home_score": 43,
+      "actual_away_score": 8,
+      "actual_winner": "Auburn",
+      "actual_margin": 35.0,
+      "correct": true,
+      "spread_error": -25.1,
+      "ats_correct": false
     },
     {
       "id": 401864502,
@@ -736,7 +1044,14 @@
       "predicted_winner": "Air Force",
       "confidence": 0.6143,
       "predicted_margin": 2.6,
-      "vegas_spread": 2.5
+      "vegas_spread": 2.5,
+      "actual_home_score": 32,
+      "actual_away_score": 38,
+      "actual_winner": "North Dakota State",
+      "actual_margin": -6.0,
+      "correct": false,
+      "spread_error": 8.6,
+      "ats_correct": false
     },
     {
       "id": 401856670,
@@ -752,7 +1067,14 @@
       "predicted_winner": "Utah",
       "confidence": 0.8207,
       "predicted_margin": 13.6,
-      "vegas_spread": -12.5
+      "vegas_spread": -12.5,
+      "actual_home_score": 43,
+      "actual_away_score": 10,
+      "actual_winner": "Utah",
+      "actual_margin": 33.0,
+      "correct": true,
+      "spread_error": -19.4,
+      "ats_correct": true
     },
     {
       "id": 401860883,
@@ -768,7 +1090,14 @@
       "predicted_winner": "Fresno State",
       "confidence": 0.7715,
       "predicted_margin": 8.5,
-      "vegas_spread": -18.5
+      "vegas_spread": -18.5,
+      "actual_home_score": 49,
+      "actual_away_score": 3,
+      "actual_winner": "Fresno State",
+      "actual_margin": 46.0,
+      "correct": true,
+      "spread_error": -37.5,
+      "ats_correct": false
     },
     {
       "id": 401858445,
@@ -784,7 +1113,14 @@
       "predicted_winner": "USC",
       "confidence": 0.9244,
       "predicted_margin": 25.5,
-      "vegas_spread": -31.5
+      "vegas_spread": -31.5,
+      "actual_home_score": 49,
+      "actual_away_score": 30,
+      "actual_winner": "USC",
+      "actual_margin": 19.0,
+      "correct": true,
+      "spread_error": 6.5,
+      "ats_correct": true
     },
     {
       "id": 401864578,
@@ -800,7 +1136,14 @@
       "predicted_winner": "Hawai'i",
       "confidence": 0.8834,
       "predicted_margin": 17.9,
-      "vegas_spread": -8.5
+      "vegas_spread": -8.5,
+      "actual_home_score": 29,
+      "actual_away_score": 19,
+      "actual_winner": "Hawai'i",
+      "actual_margin": 10.0,
+      "correct": true,
+      "spread_error": 7.9,
+      "ats_correct": true
     }
   ]
 }
