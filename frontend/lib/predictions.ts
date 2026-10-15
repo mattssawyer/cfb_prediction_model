@@ -10,6 +10,8 @@ export type Game = {
   away_team: string;
   home_conference: string | null;
   away_conference: string | null;
+  home_rank?: number | null;
+  away_rank?: number | null;
   venue: string | null;
   neutral_site: boolean;
   conference_game: boolean;
@@ -48,6 +50,7 @@ export type WeekPrediction = {
   week: number;
   generated_at: string;
   model: ModelMeta;
+  poll?: string | null;
   games: Game[];
 };
 

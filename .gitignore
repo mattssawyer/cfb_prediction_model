@@ -2,8 +2,6 @@
 .env
 
 # Virtual environments
-honors_env/
-honors_env_py311/
 venv/
 env/
 .venv/
@@ -24,7 +22,7 @@ dist/
 .DS_Store
 
 # Parquet caches (regenerable from CFBD API)
-data/
+/data/
 cfb_data/
 
 # Overview / archival

@@ -1,0 +1,968 @@
+{
+ "Air Force": {
+  "abbr": "AF",
+  "alt": "#ffffff",
+  "color": "#003594",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2005.png",
+  "mascot": "Falcons"
+ },
+ "Akron": {
+  "abbr": "AKR",
+  "alt": "#a89968",
+  "color": "#041e42",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2006.png",
+  "mascot": "Zips"
+ },
+ "Alabama": {
+  "abbr": "ALA",
+  "alt": "#ffffff",
+  "color": "#9e1b32",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/333.png",
+  "mascot": "Crimson Tide"
+ },
+ "App State": {
+  "abbr": "APP",
+  "alt": "#ffcd00",
+  "color": "#000000",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2026.png",
+  "mascot": "Mountaineers"
+ },
+ "Arizona": {
+  "abbr": "ARIZ",
+  "alt": "#003366",
+  "color": "#cc0033",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/12.png",
+  "mascot": "Wildcats"
+ },
+ "Arizona State": {
+  "abbr": "ASU",
+  "alt": "#8c1d40",
+  "color": "#ffc627",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/9.png",
+  "mascot": "Sun Devils"
+ },
+ "Arkansas": {
+  "abbr": "ARK",
+  "alt": "#ffffff",
+  "color": "#a32136",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/8.png",
+  "mascot": "Razorbacks"
+ },
+ "Arkansas State": {
+  "abbr": "ARST",
+  "alt": "#000000",
+  "color": "#cc092f",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2032.png",
+  "mascot": "Red Wolves"
+ },
+ "Army": {
+  "abbr": "ARMY",
+  "alt": "#d3bc8d",
+  "color": "#000000",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/349.png",
+  "mascot": "Black Knights"
+ },
+ "Auburn": {
+  "abbr": "AUB",
+  "alt": "#f26522",
+  "color": "#0c2340",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2.png",
+  "mascot": "Tigers"
+ },
+ "BYU": {
+  "abbr": "BYU",
+  "alt": "#002e5d",
+  "color": "#003da5",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/252.png",
+  "mascot": "Cougars"
+ },
+ "Ball State": {
+  "abbr": "BALL",
+  "alt": "#ffffff",
+  "color": "#ba0c2f",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2050.png",
+  "mascot": "Cardinals"
+ },
+ "Baylor": {
+  "abbr": "BAY",
+  "alt": "#ffb81c",
+  "color": "#154734",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/239.png",
+  "mascot": "Bears"
+ },
+ "Boise State": {
+  "abbr": "BOIS",
+  "alt": "#d64309",
+  "color": "#0033a0",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/68.png",
+  "mascot": "Broncos"
+ },
+ "Boston College": {
+  "abbr": "BC",
+  "alt": "#dbcca6",
+  "color": "#8c2232",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/103.png",
+  "mascot": "Eagles"
+ },
+ "Bowling Green": {
+  "abbr": "BGSU",
+  "alt": "#4f2c1d",
+  "color": "#fd5000",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/189.png",
+  "mascot": "Falcons"
+ },
+ "Buffalo": {
+  "abbr": "BUF",
+  "alt": "#ffffff",
+  "color": "#005bbb",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2084.png",
+  "mascot": "Bulls"
+ },
+ "California": {
+  "abbr": "CAL",
+  "alt": "#ffc72c",
+  "color": "#041e42",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/25.png",
+  "mascot": "Golden Bears"
+ },
+ "Central Michigan": {
+  "abbr": "CMU",
+  "alt": "#ffc82e",
+  "color": "#6a0032",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2117.png",
+  "mascot": "Chippewas"
+ },
+ "Charlotte": {
+  "abbr": "CLT",
+  "alt": "#a49665",
+  "color": "#005035",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2429.png",
+  "mascot": "49ers"
+ },
+ "Cincinnati": {
+  "abbr": "CIN",
+  "alt": "#e00122",
+  "color": "#000000",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2132.png",
+  "mascot": "Bearcats"
+ },
+ "Clemson": {
+  "abbr": "CLEM",
+  "alt": "#522d80",
+  "color": "#f56600",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/228.png",
+  "mascot": "Tigers"
+ },
+ "Coastal Carolina": {
+  "abbr": "CCU",
+  "alt": "#a27752",
+  "color": "#006f71",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/324.png",
+  "mascot": "Chanticleers"
+ },
+ "Colorado": {
+  "abbr": "COLO",
+  "alt": "#000000",
+  "color": "#cfb87c",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/38.png",
+  "mascot": "Buffaloes"
+ },
+ "Colorado State": {
+  "abbr": "CSU",
+  "alt": "#c8c372",
+  "color": "#1e4d2b",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/36.png",
+  "mascot": "Rams"
+ },
+ "Delaware": {
+  "abbr": "DEL",
+  "alt": "#ffd200",
+  "color": "#00539f",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/48.png",
+  "mascot": "Blue Hens"
+ },
+ "Duke": {
+  "abbr": "DUKE",
+  "alt": "#ffffff",
+  "color": "#00539b",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/150.png",
+  "mascot": "Blue Devils"
+ },
+ "East Carolina": {
+  "abbr": "ECU",
+  "alt": "#fdc82f",
+  "color": "#592a8a",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/151.png",
+  "mascot": "Pirates"
+ },
+ "Eastern Michigan": {
+  "abbr": "EMU",
+  "alt": "#ffffff",
+  "color": "#046a38",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2199.png",
+  "mascot": "Eagles"
+ },
+ "Florida": {
+  "abbr": "FLA",
+  "alt": "#fa4616",
+  "color": "#0021a5",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/57.png",
+  "mascot": "Gators"
+ },
+ "Florida Atlantic": {
+  "abbr": "FAU",
+  "alt": "#cc0000",
+  "color": "#003366",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2226.png",
+  "mascot": "Owls"
+ },
+ "Florida International": {
+  "abbr": "FIU",
+  "alt": "#c3993f",
+  "color": "#091f3f",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2229.png",
+  "mascot": "Panthers"
+ },
+ "Florida State": {
+  "abbr": "FSU",
+  "alt": "#ceb888",
+  "color": "#782f40",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/52.png",
+  "mascot": "Seminoles"
+ },
+ "Fresno State": {
+  "abbr": "FRES",
+  "alt": "#13284c",
+  "color": "#c41230",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/278.png",
+  "mascot": "Bulldogs"
+ },
+ "Georgia": {
+  "abbr": "UGA",
+  "alt": "#2c2a29",
+  "color": "#ba0c2f",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/61.png",
+  "mascot": "Bulldogs"
+ },
+ "Georgia Southern": {
+  "abbr": "GASO",
+  "alt": "#ffffff",
+  "color": "#041e42",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/290.png",
+  "mascot": "Eagles"
+ },
+ "Georgia State": {
+  "abbr": "GAST",
+  "alt": "#ffffff",
+  "color": "#0039a6",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2247.png",
+  "mascot": "Panthers"
+ },
+ "Georgia Tech": {
+  "abbr": "GT",
+  "alt": "#ffffff",
+  "color": "#b3a369",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/59.png",
+  "mascot": "Yellow Jackets"
+ },
+ "Hawai'i": {
+  "abbr": "HAW",
+  "alt": "#000000",
+  "color": "#024731",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/62.png",
+  "mascot": "Rainbow Warriors"
+ },
+ "Houston": {
+  "abbr": "HOU",
+  "alt": "#ffffff",
+  "color": "#c8102e",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/248.png",
+  "mascot": "Cougars"
+ },
+ "Illinois": {
+  "abbr": "ILL",
+  "alt": "#13294b",
+  "color": "#ff5f05",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/356.png",
+  "mascot": "Fighting Illini"
+ },
+ "Indiana": {
+  "abbr": "IU",
+  "alt": "#ffffff",
+  "color": "#990000",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/84.png",
+  "mascot": "Hoosiers"
+ },
+ "Iowa": {
+  "abbr": "IOWA",
+  "alt": "#ffcd00",
+  "color": "#000000",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2294.png",
+  "mascot": "Hawkeyes"
+ },
+ "Iowa State": {
+  "abbr": "ISU",
+  "alt": "#f1be48",
+  "color": "#c8102e",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/66.png",
+  "mascot": "Cyclones"
+ },
+ "Jacksonville State": {
+  "abbr": "JXST",
+  "alt": "#000000",
+  "color": "#cc0000",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/55.png",
+  "mascot": "Gamecocks"
+ },
+ "James Madison": {
+  "abbr": "JMU",
+  "alt": "#cbb677",
+  "color": "#450084",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/256.png",
+  "mascot": "Dukes"
+ },
+ "Kansas": {
+  "abbr": "KU",
+  "alt": "#e8000d",
+  "color": "#0051ba",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2305.png",
+  "mascot": "Jayhawks"
+ },
+ "Kansas State": {
+  "abbr": "KSU",
+  "alt": "#ffffff",
+  "color": "#512888",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2306.png",
+  "mascot": "Wildcats"
+ },
+ "Kennesaw State": {
+  "abbr": "KENN",
+  "alt": "#0b1315",
+  "color": "#fdbb30",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/338.png",
+  "mascot": "Owls"
+ },
+ "Kent State": {
+  "abbr": "KENT",
+  "alt": "#eaab00",
+  "color": "#002664",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2309.png",
+  "mascot": "Golden Flashes"
+ },
+ "Kentucky": {
+  "abbr": "UK",
+  "alt": "#ffffff",
+  "color": "#0033a0",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/96.png",
+  "mascot": "Wildcats"
+ },
+ "LSU": {
+  "abbr": "LSU",
+  "alt": "#fdd023",
+  "color": "#461d7c",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/99.png",
+  "mascot": "Tigers"
+ },
+ "Liberty": {
+  "abbr": "LIB",
+  "alt": "#b72025",
+  "color": "#0a254e",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2335.png",
+  "mascot": "Flames"
+ },
+ "Louisiana": {
+  "abbr": "UL",
+  "alt": "#000000",
+  "color": "#ce181e",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/309.png",
+  "mascot": "Ragin' Cajuns"
+ },
+ "Louisiana Tech": {
+  "abbr": "LT",
+  "alt": "#cb333b",
+  "color": "#003087",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2348.png",
+  "mascot": "Bulldogs"
+ },
+ "Louisville": {
+  "abbr": "LOU",
+  "alt": "#000000",
+  "color": "#c9001f",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/97.png",
+  "mascot": "Cardinals"
+ },
+ "Marshall": {
+  "abbr": "MRSH",
+  "alt": "#000000",
+  "color": "#00b140",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/276.png",
+  "mascot": "Thundering Herd"
+ },
+ "Maryland": {
+  "abbr": "MD",
+  "alt": "#ffffff",
+  "color": "#ce1126",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/120.png",
+  "mascot": "Terrapins"
+ },
+ "Massachusetts": {
+  "abbr": "MASS",
+  "alt": "#ffffff",
+  "color": "#881c1c",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/113.png",
+  "mascot": "Minutemen"
+ },
+ "Memphis": {
+  "abbr": "MEM",
+  "alt": "#9c9ea1",
+  "color": "#00498f",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/235.png",
+  "mascot": "Tigers"
+ },
+ "Miami": {
+  "abbr": "MIA",
+  "alt": "#005030",
+  "color": "#f47321",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2390.png",
+  "mascot": "Hurricanes"
+ },
+ "Miami (OH)": {
+  "abbr": "M-OH",
+  "alt": "#ffffff",
+  "color": "#c41230",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/193.png",
+  "mascot": "RedHawks"
+ },
+ "Michigan": {
+  "abbr": "MICH",
+  "alt": "#ffcb05",
+  "color": "#00274c",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/130.png",
+  "mascot": "Wolverines"
+ },
+ "Michigan State": {
+  "abbr": "MSU",
+  "alt": "#ffffff",
+  "color": "#173f35",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/127.png",
+  "mascot": "Spartans"
+ },
+ "Middle Tennessee": {
+  "abbr": "MTSU",
+  "alt": "#ffffff",
+  "color": "#036eb7",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2393.png",
+  "mascot": "Blue Raiders"
+ },
+ "Minnesota": {
+  "abbr": "MINN",
+  "alt": "#ffcc33",
+  "color": "#7a0019",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/135.png",
+  "mascot": "Golden Gophers"
+ },
+ "Mississippi State": {
+  "abbr": "MSST",
+  "alt": "#c1c6c8",
+  "color": "#5d1725",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/344.png",
+  "mascot": "Bulldogs"
+ },
+ "Missouri": {
+  "abbr": "MIZ",
+  "alt": "#000000",
+  "color": "#f1b82d",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/142.png",
+  "mascot": "Tigers"
+ },
+ "Missouri State": {
+  "abbr": "MOST",
+  "alt": "#ffffff",
+  "color": "#5e0009",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2623.png",
+  "mascot": "Bears"
+ },
+ "NC State": {
+  "abbr": "NCSU",
+  "alt": "#ffffff",
+  "color": "#cc0000",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/152.png",
+  "mascot": "Wolfpack"
+ },
+ "Navy": {
+  "abbr": "NAVY",
+  "alt": "#b5a67c",
+  "color": "#00225b",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2426.png",
+  "mascot": "Midshipmen"
+ },
+ "Nebraska": {
+  "abbr": "NEB",
+  "alt": "#ffffff",
+  "color": "#d00000",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/158.png",
+  "mascot": "Cornhuskers"
+ },
+ "Nevada": {
+  "abbr": "NEV",
+  "alt": "#8a8d8f",
+  "color": "#041e42",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2440.png",
+  "mascot": "Wolf Pack"
+ },
+ "New Mexico": {
+  "abbr": "UNM",
+  "alt": "#a7a8aa",
+  "color": "#ba0c2f",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/167.png",
+  "mascot": "Lobos"
+ },
+ "New Mexico State": {
+  "abbr": "NMSU",
+  "alt": "#ffffff",
+  "color": "#8c0b42",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/166.png",
+  "mascot": "Aggies"
+ },
+ "North Carolina": {
+  "abbr": "UNC",
+  "alt": "#13294b",
+  "color": "#7bafd4",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/153.png",
+  "mascot": "Tar Heels"
+ },
+ "North Dakota State": {
+  "abbr": "NDSU",
+  "alt": "#ffc425",
+  "color": "#00583d",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2449.png",
+  "mascot": "Bison"
+ },
+ "North Texas": {
+  "abbr": "UNT",
+  "alt": "#ffffff",
+  "color": "#00853e",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/249.png",
+  "mascot": "Mean Green"
+ },
+ "Northern Illinois": {
+  "abbr": "NIU",
+  "alt": "#000000",
+  "color": "#c8102e",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2459.png",
+  "mascot": "Huskies"
+ },
+ "Northwestern": {
+  "abbr": "NU",
+  "alt": "#ffffff",
+  "color": "#582c83",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/77.png",
+  "mascot": "Wildcats"
+ },
+ "Notre Dame": {
+  "abbr": "ND",
+  "alt": "#c99700",
+  "color": "#0c2340",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/87.png",
+  "mascot": "Fighting Irish"
+ },
+ "Ohio": {
+  "abbr": "OHIO",
+  "alt": "#ffffff",
+  "color": "#024230",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/195.png",
+  "mascot": "Bobcats"
+ },
+ "Ohio State": {
+  "abbr": "OSU",
+  "alt": "#a7b1b7",
+  "color": "#ba0c2f",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/194.png",
+  "mascot": "Buckeyes"
+ },
+ "Oklahoma": {
+  "abbr": "OU",
+  "alt": "#ffffff",
+  "color": "#841617",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/201.png",
+  "mascot": "Sooners"
+ },
+ "Oklahoma State": {
+  "abbr": "OKST",
+  "alt": "#000000",
+  "color": "#fe5c00",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/197.png",
+  "mascot": "Cowboys"
+ },
+ "Old Dominion": {
+  "abbr": "ODU",
+  "alt": "#98c5ea",
+  "color": "#043657",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/295.png",
+  "mascot": "Monarchs"
+ },
+ "Ole Miss": {
+  "abbr": "MISS",
+  "alt": "#cf142b",
+  "color": "#13294b",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/145.png",
+  "mascot": "Rebels"
+ },
+ "Oregon": {
+  "abbr": "ORE",
+  "alt": "#fee11a",
+  "color": "#007030",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2483.png",
+  "mascot": "Ducks"
+ },
+ "Oregon State": {
+  "abbr": "ORST",
+  "alt": "#000000",
+  "color": "#dc4405",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/204.png",
+  "mascot": "Beavers"
+ },
+ "Penn State": {
+  "abbr": "PSU",
+  "alt": "#ffffff",
+  "color": "#001e44",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/213.png",
+  "mascot": "Nittany Lions"
+ },
+ "Pittsburgh": {
+  "abbr": "PITT",
+  "alt": "#ffb81c",
+  "color": "#003594",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/221.png",
+  "mascot": "Panthers"
+ },
+ "Purdue": {
+  "abbr": "PUR",
+  "alt": "#000000",
+  "color": "#ceb888",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2509.png",
+  "mascot": "Boilermakers"
+ },
+ "Rice": {
+  "abbr": "RICE",
+  "alt": "#c1c6c8",
+  "color": "#00205b",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/242.png",
+  "mascot": "Owls"
+ },
+ "Rutgers": {
+  "abbr": "RUTG",
+  "alt": "#ffffff",
+  "color": "#ce0e2d",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/164.png",
+  "mascot": "Scarlet Knights"
+ },
+ "SMU": {
+  "abbr": "SMU",
+  "alt": "#0033a1",
+  "color": "#d70000",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2567.png",
+  "mascot": "Mustangs"
+ },
+ "Sacramento State": {
+  "abbr": "SAC",
+  "alt": "#cdb97d",
+  "color": "#00573c",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/16.png",
+  "mascot": "Hornets"
+ },
+ "Sam Houston": {
+  "abbr": "SHSU",
+  "alt": "#ffffff",
+  "color": "#f56423",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2534.png",
+  "mascot": "Bearkats"
+ },
+ "San Diego State": {
+  "abbr": "SDSU",
+  "alt": "#000000",
+  "color": "#a6192e",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/21.png",
+  "mascot": "Aztecs"
+ },
+ "San Jos\u00e9 State": {
+  "abbr": "SJSU",
+  "alt": "#e5a823",
+  "color": "#0055a2",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/23.png",
+  "mascot": "Spartans"
+ },
+ "South Alabama": {
+  "abbr": "USA",
+  "alt": "#bf0d3e",
+  "color": "#00205b",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/6.png",
+  "mascot": "Jaguars"
+ },
+ "South Carolina": {
+  "abbr": "SC",
+  "alt": "#000000",
+  "color": "#73000a",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2579.png",
+  "mascot": "Gamecocks"
+ },
+ "South Florida": {
+  "abbr": "USF",
+  "alt": "#cfc493",
+  "color": "#006747",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/58.png",
+  "mascot": "Bulls"
+ },
+ "Southern Miss": {
+  "abbr": "USM",
+  "alt": "#231f20",
+  "color": "#ffc72c",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2572.png",
+  "mascot": "Golden Eagles"
+ },
+ "Stanford": {
+  "abbr": "STAN",
+  "alt": "#ffffff",
+  "color": "#8c1515",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/24.png",
+  "mascot": "Cardinal"
+ },
+ "Syracuse": {
+  "abbr": "SYR",
+  "alt": "#000e54",
+  "color": "#f76900",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/183.png",
+  "mascot": "Orange"
+ },
+ "TCU": {
+  "abbr": "TCU",
+  "alt": "#ffffff",
+  "color": "#4d1979",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2628.png",
+  "mascot": "Horned Frogs"
+ },
+ "Temple": {
+  "abbr": "TEM",
+  "alt": "#ffffff",
+  "color": "#a41e35",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/218.png",
+  "mascot": "Owls"
+ },
+ "Tennessee": {
+  "abbr": "TENN",
+  "alt": "#ffffff",
+  "color": "#ff8200",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2633.png",
+  "mascot": "Volunteers"
+ },
+ "Texas": {
+  "abbr": "TEX",
+  "alt": "#ffffff",
+  "color": "#bf5700",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/251.png",
+  "mascot": "Longhorns"
+ },
+ "Texas A&M": {
+  "abbr": "TA&M",
+  "alt": "#ffffff",
+  "color": "#500000",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/245.png",
+  "mascot": "Aggies"
+ },
+ "Texas State": {
+  "abbr": "TXST",
+  "alt": "#6a5638",
+  "color": "#501214",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/326.png",
+  "mascot": "Bobcats"
+ },
+ "Texas Tech": {
+  "abbr": "TTU",
+  "alt": "#000000",
+  "color": "#c30020",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2641.png",
+  "mascot": "Red Raiders"
+ },
+ "Toledo": {
+  "abbr": "TOL",
+  "alt": "#ffcd00",
+  "color": "#0b2240",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2649.png",
+  "mascot": "Rockets"
+ },
+ "Troy": {
+  "abbr": "TROY",
+  "alt": "#b1b1b1",
+  "color": "#862633",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2653.png",
+  "mascot": "Trojans"
+ },
+ "Tulane": {
+  "abbr": "TULN",
+  "alt": "#418fde",
+  "color": "#006747",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2655.png",
+  "mascot": "Green Wave"
+ },
+ "Tulsa": {
+  "abbr": "TLSA",
+  "alt": "#d0b787",
+  "color": "#003595",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/202.png",
+  "mascot": "Golden Hurricane"
+ },
+ "UAB": {
+  "abbr": "UAB",
+  "alt": "#fdb913",
+  "color": "#1a5632",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/5.png",
+  "mascot": "Blazers"
+ },
+ "UCF": {
+  "abbr": "UCF",
+  "alt": "#b4a169",
+  "color": "#000000",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2116.png",
+  "mascot": "Knights"
+ },
+ "UCLA": {
+  "abbr": "UCLA",
+  "alt": "#f2a900",
+  "color": "#2774ae",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/26.png",
+  "mascot": "Bruins"
+ },
+ "UConn": {
+  "abbr": "CONN",
+  "alt": "#ffffff",
+  "color": "#000e2f",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/41.png",
+  "mascot": "Huskies"
+ },
+ "UL Monroe": {
+  "abbr": "ULM",
+  "alt": "#fdb913",
+  "color": "#840029",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2433.png",
+  "mascot": "Warhawks"
+ },
+ "UNLV": {
+  "abbr": "UNLV",
+  "alt": "#cac8c8",
+  "color": "#cf0a2c",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2439.png",
+  "mascot": "Rebels"
+ },
+ "USC": {
+  "abbr": "USC",
+  "alt": "#ffcc00",
+  "color": "#990000",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/30.png",
+  "mascot": "Trojans"
+ },
+ "UTEP": {
+  "abbr": "UTEP",
+  "alt": "#041e42",
+  "color": "#ff8200",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2638.png",
+  "mascot": "Miners"
+ },
+ "UTSA": {
+  "abbr": "UTSA",
+  "alt": "#f15a22",
+  "color": "#0c2340",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2636.png",
+  "mascot": "Roadrunners"
+ },
+ "Utah": {
+  "abbr": "UTAH",
+  "alt": "#ffffff",
+  "color": "#be0000",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/254.png",
+  "mascot": "Utes"
+ },
+ "Utah State": {
+  "abbr": "USU",
+  "alt": "#ffffff",
+  "color": "#0f2439",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/328.png",
+  "mascot": "Aggies"
+ },
+ "Vanderbilt": {
+  "abbr": "VAN",
+  "alt": "#cfae70",
+  "color": "#000000",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/238.png",
+  "mascot": "Commodores"
+ },
+ "Virginia": {
+  "abbr": "UVA",
+  "alt": "#f84c1e",
+  "color": "#232d4b",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/258.png",
+  "mascot": "Cavaliers"
+ },
+ "Virginia Tech": {
+  "abbr": "VT",
+  "alt": "#e87722",
+  "color": "#861f41",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/259.png",
+  "mascot": "Hokies"
+ },
+ "Wake Forest": {
+  "abbr": "WAKE",
+  "alt": "#2c2a29",
+  "color": "#ceb888",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/154.png",
+  "mascot": "Demon Deacons"
+ },
+ "Washington": {
+  "abbr": "WASH",
+  "alt": "#e8d3a2",
+  "color": "#33006f",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/264.png",
+  "mascot": "Huskies"
+ },
+ "Washington State": {
+  "abbr": "WSU",
+  "alt": "#4d4d4d",
+  "color": "#a60f2d",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/265.png",
+  "mascot": "Cougars"
+ },
+ "West Virginia": {
+  "abbr": "WVU",
+  "alt": "#002855",
+  "color": "#eaaa00",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/277.png",
+  "mascot": "Mountaineers"
+ },
+ "Western Kentucky": {
+  "abbr": "WKU",
+  "alt": "#ffffff",
+  "color": "#c60c30",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/98.png",
+  "mascot": "Hilltoppers"
+ },
+ "Western Michigan": {
+  "abbr": "WMU",
+  "alt": "#f1c500",
+  "color": "#532e1f",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2711.png",
+  "mascot": "Broncos"
+ },
+ "Wisconsin": {
+  "abbr": "WIS",
+  "alt": "#ffffff",
+  "color": "#a00000",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/275.png",
+  "mascot": "Badgers"
+ },
+ "Wyoming": {
+  "abbr": "WYO",
+  "alt": "#ffc425",
+  "color": "#492f24",
+  "logo": "https://cdn.collegefootballdata.com/logos/500/2751.png",
+  "mascot": "Cowboys"
+ }
+}

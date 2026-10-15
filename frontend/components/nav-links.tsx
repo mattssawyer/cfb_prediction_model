@@ -4,28 +4,27 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const items = [
-  { href: "/", label: "Slate" },
-  { href: "/performance", label: "Performance" },
-  { href: "/models", label: "Models" },
+  { href: "/", label: "Picks" },
+  { href: "/performance", label: "Track record" },
+  { href: "/models", label: "How it works" },
 ];
 
 export default function NavLinks() {
   const pathname = usePathname();
 
   return (
-    <nav className="flex gap-6 font-mono text-xs uppercase tracking-[0.15em]">
+    <nav className="flex gap-5 text-sm font-medium">
       {items.map((item) => {
         const active =
-          item.href === "/" ? pathname === "/" : pathname?.startsWith(item.href);
+          item.href === "/"
+            ? pathname === "/" || /^\/\d+\/week\//.test(pathname ?? "")
+            : pathname?.startsWith(item.href);
         return (
           <Link
             key={item.href}
             href={item.href}
-            className={
-              active
-                ? "border-b-2 border-accent pb-1 text-ink"
-                : "border-b-2 border-transparent pb-1 text-ink-muted transition-colors hover:text-ink"
-            }
+            aria-current={active ? "page" : undefined}
+            className={active ? "text-ink" : "text-muted hover:text-ink"}
           >
             {item.label}
           </Link>

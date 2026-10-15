@@ -1,20 +1,11 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
-import Link from "next/link";
-import NavLinks from "@/components/nav-links";
+import { Figtree } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css";
 
-const sans = IBM_Plex_Sans({
-  variable: "--font-plex-sans",
+const figtree = Figtree({
+  variable: "--font-figtree",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
-
-const mono = IBM_Plex_Mono({
-  variable: "--font-plex-mono",
-  subsets: ["latin"],
-  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
@@ -28,27 +19,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${sans.variable} ${mono.variable}`}>
+    <html lang="en" className={figtree.variable}>
       <Analytics />
-      <body className="flex min-h-screen flex-col antialiased">
-        <header className="bg-canvas">
-          <div className="mx-auto flex max-w-5xl items-center justify-between gap-6 px-4 py-4 sm:px-6">
-            <Link
-              href="/"
-              className="text-xl font-bold uppercase tracking-tight text-ink"
-            >
-              CFB Predictor
-            </Link>
-            <NavLinks />
-          </div>
-        </header>
-        <div className="mx-auto w-full max-w-5xl flex-1 px-4 py-10 sm:px-6 sm:py-14">
-          {children}
-        </div>
-        <footer className="mx-auto w-full max-w-5xl px-4 pb-10 font-mono text-[11px] uppercase tracking-wide text-ink-muted sm:px-6">
-          Made by <Link href="https://github.com/mattssawyer" className="text-accent hover:text-accent-dark">Matthew Sawyer</Link>. Data via <Link href="https://collegefootballdata.com" className="text-accent hover:text-accent-dark">collegefootballdata.com</Link>
-        </footer>
-      </body>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }
