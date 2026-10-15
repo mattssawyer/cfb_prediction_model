@@ -39,7 +39,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": null
     },
     {
       "id": 401871053,
@@ -62,7 +64,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": null
     },
     {
       "id": 401871054,
@@ -85,7 +89,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": null
     },
     {
       "id": 401871068,
@@ -108,7 +114,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": null
     },
     {
       "id": 401862800,
@@ -131,7 +139,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": null
     },
     {
       "id": 401869950,
@@ -154,7 +164,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": null
     },
     {
       "id": 401860923,
@@ -177,7 +189,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": null
     },
     {
       "id": 401862801,
@@ -200,7 +214,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": null
     },
     {
       "id": 401869844,
@@ -223,7 +239,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": null
     },
     {
       "id": 401858493,
@@ -246,7 +264,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": null
     },
     {
       "id": 401858492,
@@ -269,7 +289,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": null
     },
     {
       "id": 401858494,
@@ -292,7 +314,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": 12,
+      "away_rank": null
     },
     {
       "id": 401856720,
@@ -315,7 +339,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": 22,
+      "away_rank": 16
     },
     {
       "id": 401856724,
@@ -338,7 +364,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": 7,
+      "away_rank": null
     },
     {
       "id": 401869957,
@@ -361,7 +389,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": null
     },
     {
       "id": 401856830,
@@ -384,7 +414,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": null
     },
     {
       "id": 401858488,
@@ -407,7 +439,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": 5,
+      "away_rank": 4
     },
     {
       "id": 401862802,
@@ -430,7 +464,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": null
     },
     {
       "id": 401858268,
@@ -453,7 +489,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": 24,
+      "away_rank": null
     },
     {
       "id": 401858491,
@@ -476,7 +514,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": 25
     },
     {
       "id": 401866441,
@@ -499,7 +539,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": null
     },
     {
       "id": 401858267,
@@ -522,7 +564,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": null
     },
     {
       "id": 401856829,
@@ -545,7 +589,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": null
     },
     {
       "id": 401858489,
@@ -568,7 +614,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": null
     },
     {
       "id": 401862803,
@@ -591,7 +639,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": null
     },
     {
       "id": 401866442,
@@ -614,7 +664,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": null
     },
     {
       "id": 401866443,
@@ -637,7 +689,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": null
     },
     {
       "id": 401856828,
@@ -660,7 +714,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": 10,
+      "away_rank": null
     },
     {
       "id": 401856719,
@@ -683,7 +739,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": 1,
+      "away_rank": null
     },
     {
       "id": 401856721,
@@ -706,7 +764,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": 9,
+      "away_rank": 13
     },
     {
       "id": 401858266,
@@ -729,7 +789,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": null
     },
     {
       "id": 401858490,
@@ -752,7 +814,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": null
     },
     {
       "id": 401866444,
@@ -775,7 +839,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": null
     },
     {
       "id": 401864522,
@@ -798,7 +864,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": null
     },
     {
       "id": 401858264,
@@ -821,7 +889,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": null
     },
     {
       "id": 401856723,
@@ -844,7 +914,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": 14,
+      "away_rank": 6
     },
     {
       "id": 401866478,
@@ -867,7 +939,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": null
     },
     {
       "id": 401864524,
@@ -890,7 +964,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": null
     },
     {
       "id": 401862805,
@@ -913,7 +989,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": null
     },
     {
       "id": 401869966,
@@ -936,7 +1014,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": null
     },
     {
       "id": 401860903,
@@ -959,7 +1039,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": null
     },
     {
       "id": 401862806,
@@ -982,7 +1064,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": null
     },
     {
       "id": 401858263,
@@ -1005,7 +1089,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": 3,
+      "away_rank": null
     },
     {
       "id": 401856726,
@@ -1028,7 +1114,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": null
     },
     {
       "id": 401864520,
@@ -1051,7 +1139,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": null
     },
     {
       "id": 401856832,
@@ -1074,7 +1164,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": null
     },
     {
       "id": 401869934,
@@ -1097,7 +1189,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": null
     },
     {
       "id": 401856831,
@@ -1120,7 +1214,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": 20,
+      "away_rank": 18
     },
     {
       "id": 401856809,
@@ -1143,7 +1239,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": 8,
+      "away_rank": 2
     },
     {
       "id": 401858265,
@@ -1166,7 +1264,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": null
     },
     {
       "id": 401856722,
@@ -1189,7 +1289,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": 15
     },
     {
       "id": 401871091,
@@ -1212,7 +1314,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": null
     },
     {
       "id": 401862804,
@@ -1235,7 +1339,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": null
     },
     {
       "id": 401864523,
@@ -1258,7 +1364,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": null
     },
     {
       "id": 401866445,
@@ -1281,7 +1389,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": null
     },
     {
       "id": 401856833,
@@ -1304,7 +1414,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": 11
     },
     {
       "id": 401864521,
@@ -1327,7 +1439,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": null
     },
     {
       "id": 401860904,
@@ -1350,7 +1464,9 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": null
     },
     {
       "id": 401858269,
@@ -1373,7 +1489,10 @@
       "actual_margin": null,
       "correct": null,
       "spread_error": null,
-      "ats_correct": null
+      "ats_correct": null,
+      "home_rank": null,
+      "away_rank": 21
     }
-  ]
+  ],
+  "poll": "AP Top 25"
 }

@@ -518,6 +518,7 @@ def predict_week(
     calibrated = apply_calibration(raw_probs, schema)
 
     margins, spread_meta = _predict_margins(X)
+    poll, ranks = poll_ranks(loader.load_rankings(season), week)
 
     games = []
     n = len(calibrated)
@@ -534,6 +535,8 @@ def predict_week(
             "away_team": str(away_team),
             "home_conference": _optional_str(game.get("homeConference")),
             "away_conference": _optional_str(game.get("awayConference")),
+            "home_rank": ranks.get(str(home_team)),
+            "away_rank": ranks.get(str(away_team)),
             "venue": _optional_str(game.get("venue")),
             "neutral_site": bool(game.get("neutralSite", False)),
             "conference_game": bool(game.get("conferenceGame", False)),
@@ -561,6 +564,7 @@ def predict_week(
         "week": week,
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "model": {**_model_meta(schema), "spread": spread_meta},
+        "poll": poll,
         "games": games,
     }
     print(f"Produced {len(games)} predictions")
@@ -603,6 +607,27 @@ def _model_meta(schema: dict) -> dict:
         "holdout_auc": _optional_float(metrics.get("auc") if metrics else None),
         "holdout_brier": _optional_float(metrics.get("brier") if metrics else None),
     }
+
+
+_POLL_PREFERENCE = ("AP Top 25", "Coaches Poll")
+
+
+def poll_ranks(rankings: pd.DataFrame, week: int) -> tuple[str | None, dict[str, int]]:
+    """Top 25 going into ``week``: the latest regular-season poll at or before it.
+
+    Prefers the AP poll and falls back to the Coaches Poll. Returns the poll
+    name and a ``{school: rank}`` map, or ``(None, {})`` when nothing is out yet.
+    """
+    if rankings.empty:
+        return None, {}
+    rows = rankings[(rankings["seasonType"] == "regular") & (rankings["week"] <= week)]
+    if rows.empty:
+        return None, {}
+    polls = {p["poll"]: p["ranks"] for p in rows.sort_values("week").iloc[-1]["polls"]}
+    for name in _POLL_PREFERENCE:
+        if name in polls:
+            return name, {r["school"]: int(r["rank"]) for r in polls[name]}
+    return None, {}
 
 
 def _empty_prediction(season: int, week: int, schema: dict) -> dict:

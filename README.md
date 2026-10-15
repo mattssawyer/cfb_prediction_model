@@ -52,6 +52,7 @@ plus a copy at `predictions/latest.json`:
     "holdout_auc": 0.7589,
     "holdout_brier": 0.1942
   },
+  "poll": "AP Top 25",
   "games": [
     {
       "id": 401752722,
@@ -60,6 +61,8 @@ plus a copy at `predictions/latest.json`:
       "away_team": "San José State",
       "home_conference": "Big Ten",
       "away_conference": "Mountain West",
+      "home_rank": 14,
+      "away_rank": null,
       "venue": "United Airlines Field at the Los Angeles Memorial Coliseum",
       "neutral_site": false,
       "conference_game": false,
