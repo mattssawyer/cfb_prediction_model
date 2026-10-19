@@ -15,7 +15,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       <main className="mx-auto w-full max-w-4xl flex-1 px-5 py-8">{children}</main>
       <footer className="mx-auto w-full max-w-4xl px-5 pb-10 text-sm text-muted">
         Built by{" "}
-        <Link href="https://github.com/mattssawyer" className="font-medium text-ink hover:underline">
+        <Link href="https://matthewsawyer.dev" className="font-medium text-ink hover:underline">
           Matthew Sawyer
         </Link>
         . Team and game data from{" "}
