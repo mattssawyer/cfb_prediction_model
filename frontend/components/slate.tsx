@@ -1,6 +1,6 @@
 "use client";
 
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import GameRow from "@/components/game-row";
 import { groupByDay, vegasFavorite } from "@/lib/format";
 import type { Game } from "@/lib/predictions";
@@ -55,8 +55,6 @@ export function GameList({ games }: { games: Game[] }) {
 }
 
 export default function Slate({ games }: { games: Game[] }) {
-  const router = useRouter();
-  const pathname = usePathname();
   const params = useSearchParams();
   const conference = params.get("conference") ?? "";
   const active = TOGGLES.filter((t) => params.get(t.key) === "1");
@@ -70,9 +68,13 @@ export default function Slate({ games }: { games: Game[] }) {
     (g) => (!conference || inConference(g, conference)) && active.every((t) => t.test(g)),
   );
 
+  // Filtering is all client-side, so update the URL in place. Next.js syncs
+  // useSearchParams with history.replaceState without fetching the route again.
+  // location.pathname (not usePathname) keeps the basePath.
   function navigate(query: URLSearchParams) {
     const qs = query.toString();
-    router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
+    const path = window.location.pathname;
+    window.history.replaceState(null, "", qs ? `${path}?${qs}` : path);
   }
 
   function setConference(value: string) {
