@@ -1,15 +1,15 @@
 {
   "2026": {
     "season_to_date": {
-      "games_graded": 382,
-      "binary_accuracy": 0.7356,
-      "brier": 0.1701,
-      "spread_games_graded": 382,
-      "spread_mae": 12.83,
-      "spread_rmse": 16.67,
-      "spread_sign_accuracy": 0.7592,
-      "ats_games_graded": 372,
-      "ats_accuracy": 0.5511
+      "games_graded": 438,
+      "binary_accuracy": 0.7192,
+      "brier": 0.1808,
+      "spread_games_graded": 438,
+      "spread_mae": 12.67,
+      "spread_rmse": 16.39,
+      "spread_sign_accuracy": 0.7443,
+      "ats_games_graded": 426,
+      "ats_accuracy": 0.5469
     },
     "weeks": [
       {
@@ -95,6 +95,18 @@
         "spread_sign_accuracy": 0.7627,
         "ats_games_graded": 56,
         "ats_accuracy": 0.5893
+      },
+      {
+        "week": 8,
+        "games_graded": 56,
+        "binary_accuracy": 0.6071,
+        "brier": 0.2537,
+        "spread_games_graded": 56,
+        "spread_mae": 11.55,
+        "spread_rmse": 14.34,
+        "spread_sign_accuracy": 0.6429,
+        "ats_games_graded": 54,
+        "ats_accuracy": 0.5185
       }
     ]
   }
